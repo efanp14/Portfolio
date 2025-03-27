@@ -34,7 +34,6 @@
         background: var(--light-gray);
       }
 
-      /* Navigation */
       .nav-container {
         background: var(--primary-blue);
         border-bottom: 3px solid var(--secondary-blue);
@@ -48,9 +47,166 @@
         margin: 0 auto;
         padding: 1rem 2rem;
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+      }
+
+      .nav-items {
+        display: flex;
         align-items: center;
         gap: 4rem;
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--light-gray);
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          justify-content: space-between;
+          padding: 0.5rem 1rem;
+        }
+
+        .logo {
+          padding: 0.3rem 0.8rem;
+          font-size: 1.2rem;
+          box-shadow: 2px 2px 0 var(--dark-gray);
+        }
+
+        .menu-toggle {
+          margin-left: auto;
+        }
+
+        nav {
+          padding: 1rem;
+          gap: 1rem;
+        }
+
+        .nav-items {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: var(--primary-blue);
+          flex-direction: column;
+          gap: 1rem;
+          padding: 1.5rem 2rem;
+          align-items: center;
+        }
+
+        .nav-items.active {
+          display: flex;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .menu-toggle {
+          display: block;
+          order: 2;
+        }
+
+        .social-icons {
+          display: flex;
+          justify-content: center;
+          margin-left: 0;
+          padding-top: 1rem;
+          border-top: 2px solid var(--secondary-blue);
+        }
+
+        .hero {
+          padding: 3rem 1.5rem 0;
+        }
+
+        /* Adjust Hero Content for Mobile */
+        .hero-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          padding: 0rem; /* Reduced left/right padding EVEN MORE */
+          margin: 0rem -1rem;
+          width: 100%;
+          overflow-wrap: break-word;
+        }
+
+        .hero-text {
+          text-align: left;
+        }
+
+        /* Hide hero image on mobile */
+        .hero-image {
+          display: none;
+        }
+
+        .hero-image img {
+          width: 100%;
+        }
+
+        .hero h1 {
+        font-size: clamp(1.8rem, 4vw, 3rem); /* Adjusts size between 1.8rem and 3rem */
+        line-height: 1.1;
+          margin-bottom: 0.5rem;
+          word-break: break-word;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2vw, 1.5rem); /* Adjusts size between 1rem and 1.5rem */
+            margin-bottom: 1rem;
+          word-break: break-word;
+        }
+
+        .about-me-hero {
+          font-size: 1rem;
+          margin: 1.5rem 0;
+          padding-left: 1rem;
+          margin: 2rem 0rem; /*Reduced left/right margin even more */
+          max-width: 100%;
+          padding-left: 0rem; /*REDUCED LEFT PADDING*/
+        }
+
+        .about-me-hero p {
+          font-size: 1rem;
+          margin-bottom: 0.8rem;
+          word-break: break-word;
+        }
+
+        .pixel-divider {
+          margin: 1rem 0;
+          height: 2px;
+        }
+
+        .project-grid {
+          padding: 0 1rem;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .hero {
+          padding: 4rem 3rem 0;
+        }
+
+        .hero-content {
+          gap: 5rem;
+        }
+      }
+
+      nav {
+        max-width: 1650px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
       }
 
       .logo {
@@ -61,8 +217,6 @@
         background: var(--secondary-blue);
         border: 2px solid var(--dark-gray);
         box-shadow: 4px 4px 0 var(--dark-gray);
-        margin-left: 0;
-        margin-right: auto;
       }
 
       .nav-links a {
@@ -98,7 +252,6 @@
         letter-spacing: -0.5px;
       }
 
-      /* Hero Section */
       .hero {
         padding: 5rem 10rem 0;
         border-bottom: 0px solid var(--secondary-blue);
@@ -142,9 +295,7 @@
       .hover-zone {
         position: absolute;
         width: 60%;
-        /* Adjust this to control hover area size */
         height: 80%;
-        /* Adjust this to control hover area size */
         left: 70%;
         top: 1%;
         z-index: 2;
@@ -152,8 +303,6 @@
 
       .hero-image img {
         pointer-events: none;
-        /* Let clicks pass through to hover-zone */
-        /* Keep existing image styles */
       }
 
       .hero h1 {
@@ -178,7 +327,6 @@
         animation-delay: 0.6s;
       }
 
-      /* Typewriter Effect */
       .typewriter {
         display: inline-block;
         overflow: hidden;
@@ -192,9 +340,8 @@
         animation: jump 0.5s ease;
       }
 
-      /* Projects Section - UPDATED */
       .projects {
-        padding: 4rem 2rem 6rem 0;
+        padding: 0rem 2rem 6rem 0;
         background: var(--light-gray);
       }
 
@@ -227,7 +374,6 @@
         text-decoration: none;
         color: inherit;
         display: flex;
-        /* Changed to flex */
         gap: 1.5rem;
         align-items: center;
       }
@@ -246,7 +392,6 @@
 
       .project-image-container {
         width: 40%;
-        /* Adjusted width */
         flex-shrink: 0;
         height: 200px;
         overflow: hidden;
@@ -285,7 +430,6 @@
         display: inline-block;
         background: var(--secondary-blue);
         color: var(--light-gray);
-        /* Text color */
         padding: 0.5rem 0.5rem;
         margin: 0.5rem;
         margin-top: auto;
@@ -304,6 +448,25 @@
         }
       }
 
+      @media (max-width: 768px) {
+  .projects {
+    text-align: center; /* Centers text inside the section */
+    padding: 4rem 1.5rem; /* Adjusts padding for better centering */
+  }
+
+  .project-grid {
+    display: flex; 
+    flex-direction: column;
+    align-items: center; /* Centers project cards */
+    justify-content: center;
+  }
+
+  .project-card {
+    max-width: 90%; /* Ensures the project cards don’t stretch too wide */
+    text-align: left; /* Keeps text alignment readable */
+  }
+}
+
       .social-icons {
         display: flex;
         gap: 1.5rem;
@@ -320,13 +483,23 @@
         transform: translateY(-2px);
       }
 
-      @media (max-width: 768px) {
+      /*  Keep social icons inline with nav links on larger screens */
+      @media (min-width: 769px) {
         .social-icons {
-          display: none;
+          display: flex;
         }
       }
 
-      /* Animations */
+      @media (max-width: 768px) {
+        .social-icons {
+          display: flex; /* Ensure icons are visible */
+          justify-content: center;
+          margin-left: 0;
+          padding-top: 1rem;
+          border-top: 2px solid var(--secondary-blue);
+        }
+      }
+
       @keyframes fadeInUp {
         from {
           opacity: 0;
@@ -376,7 +549,6 @@
         }
       }
 
-      /* Skill Highlight */
       .about-me-hero strong {
         transition: all 0.3s ease;
         display: inline-block;
@@ -388,7 +560,6 @@
         transform: translateY(-2px);
       }
 
-      /* Dashed Line Animation */
       .pixel-divider {
         height: 4px;
         background: repeating-linear-gradient(
@@ -403,32 +574,37 @@
         background-size: 200% 100%;
       }
 
-      /* Responsive Design */
       @media (max-width: 768px) {
         .hero-content {
           grid-template-columns: 1fr;
           gap: 2rem;
           text-align: left;
+          padding: 0;
+          margin: 0 -1rem;
         }
+
+        @media (max-width: 768px) {
+        .hero {
+            padding: 5rem 1.4rem 0;
+        }
+        }
+
 
         .hero-image {
           margin: 0 auto;
           max-width: 300px;
         }
 
-        .hero h1 {
-          font-size: 2rem;
-        }
-
         .about-me-hero {
-          margin: 2rem 0;
-          max-width: 600px;
+          border-left-width: 2px;
           font-size: 1.1rem;
           line-height: 1.6;
           color: var(--secondary-blue);
-          border-left: 3px solid var(--primary-blue);
-          padding-left: 1.5rem;
+          border-left: 0px solid var(--primary-blue);
           margin-left: 0.5rem;
+          margin: 1.5rem 0;
+          padding-left: 1rem;
+          padding-right: 1rem;
         }
 
         .about-me-hero p {
@@ -436,42 +612,70 @@
         }
 
         .pixel-divider {
+          background-size: auto 100%;
+          animation: none;
           margin: 1.5rem 0;
+        }
+        /* HIDE IMAGE ON MOBILE */
+        #carousel-image {
+          display: none;
+        }
+        /*Responsive font sizing*/
+        .hero h1 {
+          font-size: 7vw; /*Responsive heading*/
+        }
+
+        .subtitle {
+          font-size: 4vw; /*Responsive subtitle*/
+        }
+
+        .about-me-hero {
+          font-size: 4vw; /*Responsive about me*/
+          margin-left: 1vw; /*Added left margim*/
+        }
+
+        .about-me-hero p {
+          font-size: 4vw; /*responsive para*/
         }
       }
     </style>
   </head>
   <body>
-    <!-- Navigation -->
     <div class="nav-container">
       <nav>
         <div class="logo">Ethan_Pangilinan</div>
-        <div class="nav-links">
-          <a href="#">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#resume">Resume</a>
-          <a href="#contact">Contact</a>
+        <div class="nav-items">
+          <div class="nav-links">
+            <a href="#">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <!-- Social Icons outside Navlinks for default view -->
+          <div class="social-icons">
+            <a
+              href="https://www.linkedin.com/in/ethan-pangilinan-aaaaa6251/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/efanp14?tab=overview&from=2024-12-01&to=2024-12-31"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <!-- End Social Icons -->
         </div>
-        <div class="social-icons">
-          <a
-            href="https://www.linkedin.com/in/ethan-pangilinan-aaaaa6251/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a
-            href="https://github.com/efanp14?tab=overview&from=2024-12-01&to=2024-12-31"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
+        <button class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
       </nav>
     </div>
 
-    <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
         <div class="hero-text">
@@ -538,12 +742,12 @@
             src="FrontFacingNCBB.png"
             alt="Profile Picture"
             id="carousel-image"
+            class=""
           />
         </div>
       </div>
     </section>
 
-    <!-- Projects Section - UPDATED -->
     <section id="projects" class="projects">
       <h2>Projects</h2>
       <div class="project-grid">
@@ -573,13 +777,30 @@
     </section>
 
     <script>
-      // Modified JavaScript - change event listener target
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navItems = document.querySelector(".nav-items");
+
+      menuToggle.addEventListener("click", () => {
+        navItems.classList.toggle("active");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!navItems.contains(e.target) && !menuToggle.contains(e.target)) {
+          navItems.classList.remove("active");
+        }
+      });
+
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navItems.classList.remove("active");
+        });
+      });
+
       const hoverZone = document.querySelector(".hover-zone");
 
       hoverZone.addEventListener("mouseenter", () => {
         if (delayActive) return;
 
-        // Trigger jump animation on the actual image
         carouselImage.classList.add("jump");
 
         const handleAnimationEnd = () => {
@@ -602,7 +823,6 @@
     </script>
 
     <script>
-      // Scroll reveal animation
       const scrollReveal = document.querySelectorAll(".scroll-reveal");
       const observer = new IntersectionObserver(
         (entries) => {
@@ -616,7 +836,6 @@
       );
       scrollReveal.forEach((element) => observer.observe(element));
 
-      // Image Carousel
       const images = ["FrontFacingNCBB.png", "GreenNCBB.png", "PhoneNCBB.png"];
       const carouselImage = document.getElementById("carousel-image");
       let currentIndex = 0;
@@ -636,14 +855,11 @@
         }
       }
 
-      // Single event listener for hover
       carouselImage.addEventListener("mouseenter", () => {
         if (delayActive) return;
 
-        // Add jump animation
         carouselImage.classList.add("jump");
 
-        // Handle animation end
         const handleAnimationEnd = () => {
           carouselImage.classList.remove("jump");
           carouselImage.removeEventListener("animationend", handleAnimationEnd);
@@ -651,12 +867,10 @@
 
         carouselImage.addEventListener("animationend", handleAnimationEnd);
 
-        // Update image after 300ms
         setTimeout(() => {
           updateImage();
         }, 300);
 
-        // Set cooldown
         delayActive = true;
         setTimeout(() => {
           delayActive = false;
