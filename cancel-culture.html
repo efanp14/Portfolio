@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancel Culture App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reuse styles from main page and add: */
+        .project-details {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .project-hero-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            margin: 2rem 0;
+            border: 3px solid var(--dark-gray);
+        }
+
+        .project-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        .project-features {
+            background: var(--light-gray);
+            padding: 2rem;
+            border: 2px solid var(--dark-gray);
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <nav>
+            <a href="index.html" class="logo">← Back to Portfolio</a>
+        </nav>
+    </div>
+
+    <div class="project-details">
+        <h1>Cancel Culture App</h1>
+        <img src="cancel-culture-full.jpg" alt="Project Screens" class="project-hero-image">
+        
+        <div class="project-content">
+            <div class="project-description">
+                <h2>About the Project</h2>
+                <p>Detailed project description here...</p>
+                <h3>Technical Challenges</h3>
+                <p>Description of technical challenges overcome...</p>
+            </div>
+            
+            <div class="project-features">
+                <h3>Tech Stack</h3>
+                <ul>
+                    <li>Flutter</li>
+                    <li>Dart</li>
+                    <li>Go Backend</li>
+                </ul>
+                <h3>Features</h3>
+                <ul>
+                    <li>Group Planning</li>
+                    <li>Payment Integration</li>
+                    <li>Social Features</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
