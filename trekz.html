@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trekz Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reuse styles from main page and add: */
+        :root {
+            --primary-blue: #007bff; /* Example color, adjust as needed */
+            --light-gray: #f8f9fa; /* Example color, adjust as needed */
+            --dark-gray: #343a40; /* Example color, adjust as needed */
+        }
+        
+        body {
+            font-family: 'Space Mono', monospace;
+            margin: 0;
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+        }
+
+        .nav-container {
+            background-color: var(--dark-gray);
+            padding: 1rem 0;
+            border-bottom: 3px solid var(--primary-blue);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav a.logo {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .project-details {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff; /* Added to distinguish from body */
+            border: 1px solid #ddd; /* Added for a bit of definition */
+        }
+
+        .back-link { /* Style for back link if it's different from logo */
+            display: inline-block;
+            margin-bottom: 2rem;
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .project-hero-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            margin: 2rem 0;
+            border: 3px solid var(--dark-gray);
+        }
+
+        .project-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        .project-description h2, .project-description h3 {
+             color: var(--primary-blue);
+        }
+        
+        .project-features {
+            background: var(--light-gray);
+            padding: 2rem;
+            border: 2px solid var(--dark-gray);
+        }
+        .project-features h3 {
+            color: var(--primary-blue);
+            margin-top: 0;
+        }
+        .project-features ul {
+            list-style: none;
+            padding: 0;
+        }
+        .project-features ul li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <nav>
+            <a href="index.html" class="logo">← Back to Portfolio</a>
+        </nav>
+    </div>
+
+    <div class="project-details">
+        <h1>Trekz</h1>
+        <img src="trekz-project.png" alt="Trekz Project Hero Image" class="project-hero-image">
+        
+        <div class="project-content">
+            <div class="project-description">
+                <h2>About the Project</h2>
+                <p>[Project description will go here based on the blog post]</p>
+                <h3>Technical Challenges</h3>
+                <p>[Technical challenges description will go here based on the blog post]</p>
+            </div>
+            
+            <div class="project-features">
+                <h3>Tech Stack</h3>
+                <ul>
+                    <li>[Tech Stack Item 1]</li>
+                    <li>[Tech Stack Item 2]</li>
+                    <li>[Tech Stack Item 3]</li>
+                </ul>
+                <h3>Features</h3>
+                <ul>
+                    <li>[Feature 1]</li>
+                    <li>[Feature 2]</li>
+                    <li>[Feature 3]</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
