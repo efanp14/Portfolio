@@ -1,81 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cancel Culture App</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Reuse styles from main page and add: */
-        .project-details {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 2rem;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Name - Ethan Pangilinan</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <script
+    src="https://kit.fontawesome.com/5ce3789171.js"
+    crossorigin="anonymous"
+  ></script>
+  <style>
+    :root {
+      --primary-blue: #7aa2f7;
+      --secondary-blue: #2a2f3d;
+      --accent: #090c08;
+      --dark-gray: #1a1b26;
+      --light-gray: #f5f5f5;
+    }
 
-        .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            text-decoration: none;
-            color: var(--primary-blue);
-            font-weight: bold;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Space Mono", monospace;
+    }
 
-        .project-hero-image {
-            width: 100%;
-            max-height: 500px;
-            object-fit: cover;
-            margin: 2rem 0;
-            border: 3px solid var(--dark-gray);
-        }
+    body {
+      line-height: 1.4;
+      color: var(--dark-gray);
+      background: var(--light-gray);
+    }
 
-        .project-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-        }
+    .nav-container {
+      background: var(--primary-blue);
+      border-bottom: 3px solid var(--secondary-blue);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-        .project-features {
-            background: var(--light-gray);
-            padding: 2rem;
-            border: 2px solid var(--dark-gray);
-        }
-    </style>
+    nav {
+      max-width: 1650px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--light-gray);
+      padding: 0.5rem 1rem;
+      background: var(--secondary-blue);
+      border: 2px solid var(--dark-gray);
+      box-shadow: 4px 4px 0 var(--dark-gray);
+    }
+
+    .nav-items {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--light-gray);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      font-weight: 600;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      transform: translateY(-2px);
+      color: var(--accent);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1.5rem;
+      margin-left: 2rem;
+    }
+
+    .social-icons a {
+      color: var(--light-gray);
+      font-size: 1.4rem;
+      transition: transform 0.2s ease;
+    }
+
+    .social-icons a:hover {
+      transform: translateY(-2px);
+    }
+
+    .container {
+      max-width: 1650px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .project-title {
+      font-size: 3rem;
+      color: var(--primary-blue);
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      text-shadow: 2px 2px 0 var(--secondary-blue);
+    }
+
+    .project-subtitle {
+      font-size: 1.3rem;
+      color: var(--dark-gray);
+      margin-top: 1rem;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--light-gray);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      .nav-items {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--primary-blue);
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem 2rem;
+        align-items: center;
+      }
+      .nav-items.active {
+        display: flex;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="nav-container">
-        <nav>
-            <a href="index.html" class="logo">← Back to Portfolio</a>
-        </nav>
-    </div>
-
-    <div class="project-details">
-        <h1>Cancel Culture App</h1>
-        <img src="cancel-culture-full.jpg" alt="Project Screens" class="project-hero-image">
-        
-        <div class="project-content">
-            <div class="project-description">
-                <h2>About the Project</h2>
-                <p>Detailed project description here...</p>
-                <h3>Technical Challenges</h3>
-                <p>Description of technical challenges overcome...</p>
-            </div>
-            
-            <div class="project-features">
-                <h3>Tech Stack</h3>
-                <ul>
-                    <li>Flutter</li>
-                    <li>Dart</li>
-                    <li>Go Backend</li>
-                </ul>
-                <h3>Features</h3>
-                <ul>
-                    <li>Group Planning</li>
-                    <li>Payment Integration</li>
-                    <li>Social Features</li>
-                </ul>
-            </div>
+  <div class="nav-container">
+    <nav>
+      <div class="logo">Ethan_Pangilinan</div>
+      <div class="nav-items">
+        <div class="nav-links">
+          <a href="index.html">About</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="contact.html">Contact</a>
         </div>
-    </div>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/ethan-pangilinan-aaaaa6251/" target="_blank">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/efanp14" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+      <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+  </div>
+
+  <div class="container">
+    <h1 class="project-title">WIP</h1>
+    <p class="project-subtitle">// Please stay tuned!</p>
+
+    <a href="index.html#projects" class="back-btn">← Back</a>
+
+    <style>
+    .back-btn {
+        display: inline-block;
+        background: #f0f0f0;
+        text-decoration: none;
+        padding: 10px 16px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-family: inherit;
+        color: black;
+    }
+    .back-btn:hover {
+        background: #e0e0e0;
+    }
+    </style>
+
+
+  </div>
+
+  
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navItems = document.querySelector(".nav-items");
+
+    menuToggle.addEventListener("click", () => {
+      navItems.classList.toggle("active");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!navItems.contains(e.target) && !menuToggle.contains(e.target)) {
+        navItems.classList.remove("active");
+      }
+    });
+  </script>
 </body>
 </html>
