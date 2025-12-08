@@ -1,227 +1,927 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Name - Ethan Pangilinan</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
-  <script
-    src="https://kit.fontawesome.com/5ce3789171.js"
-    crossorigin="anonymous"
-  ></script>
-  <style>
-    :root {
-      --primary-blue: #7aa2f7;
-      --secondary-blue: #2a2f3d;
-      --accent: #090c08;
-      --dark-gray: #1a1b26;
-      --light-gray: #f5f5f5;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Name - Ethan Pangilinan</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/5ce3789171.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+        :root {
+            --primary-blue: #7aa2f7;
+            --secondary-blue: #2a2f3d;
+            --accent: #090c08;
+            --dark-gray: #1a1b26;
+            --light-gray: #f5f5f5;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Space Mono", monospace;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Space Mono", monospace;
+        }
 
-    body {
-      line-height: 1.4;
-      color: var(--dark-gray);
-      background: var(--light-gray);
-    }
+        body {
+            line-height: 1.4;
+            color: var(--dark-gray);
+            background: var(--light-gray);
+        }
 
-    .nav-container {
-      background: var(--primary-blue);
-      border-bottom: 3px solid var(--secondary-blue);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+        .nav-container {
+            background: var(--primary-blue);
+            border-bottom: 3px solid var(--secondary-blue);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-    nav {
-      max-width: 1650px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-    }
+        nav {
+            max-width: 1650px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
 
-    .logo {
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: var(--light-gray);
-      padding: 0.5rem 1rem;
-      background: var(--secondary-blue);
-      border: 2px solid var(--dark-gray);
-      box-shadow: 4px 4px 0 var(--dark-gray);
-    }
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--light-gray);
+            padding: 0.5rem 1rem;
+            background: var(--secondary-blue);
+            border: 2px solid var(--dark-gray);
+            box-shadow: 4px 4px 0 var(--dark-gray);
+        }
 
-    .nav-items {
-      display: flex;
-      align-items: center;
-      gap: 4rem;
-    }
+        .nav-items {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
 
-    .nav-links a {
-      color: var(--light-gray);
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: -0.5px;
-      font-weight: 600;
-      position: relative;
-      transition: all 0.2s ease;
-    }
+        .nav-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.2s ease;
+        }
 
-    .nav-links a:hover {
-      transform: translateY(-2px);
-      color: var(--accent);
-    }
+        .nav-links a:hover {
+            transform: translateY(-2px);
+            color: var(--accent);
+        }
 
-    .social-icons {
-      display: flex;
-      gap: 1.5rem;
-      margin-left: 2rem;
-    }
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--dark-gray);
+            transition: width 0.3s ease;
+        }
 
-    .social-icons a {
-      color: var(--light-gray);
-      font-size: 1.4rem;
-      transition: transform 0.2s ease;
-    }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-    .social-icons a:hover {
-      transform: translateY(-2px);
-    }
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+            margin-left: 2rem;
+        }
 
-    .container {
-      max-width: 1650px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
-      text-align: center;
-    }
+        .social-icons a {
+            color: var(--light-gray);
+            font-size: 1.4rem;
+            transition: transform 0.2s ease;
+        }
 
-    .project-title {
-      font-size: 3rem;
-      color: var(--primary-blue);
-      text-transform: uppercase;
-      letter-spacing: -1px;
-      text-shadow: 2px 2px 0 var(--secondary-blue);
-    }
+        .social-icons a:hover {
+            transform: translateY(-2px);
+        }
 
-    .project-subtitle {
-      font-size: 1.3rem;
-      color: var(--dark-gray);
-      margin-top: 1rem;
-    }
+        .back-btn {
+            position: fixed;
+            top: 50%;
+            left: 2rem;
+            transform: translateY(-50%);
+            background: var(--primary-blue);
+            color: var(--light-gray);
+            border: 2px solid var(--dark-gray);
+            box-shadow: 4px 4px 0 var(--dark-gray);
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 50;
+            font-family: "Space Mono", monospace;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
 
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--light-gray);
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0.5rem;
-    }
+        .back-btn:hover {
+            transform: translateY(-50%) translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--dark-gray);
+        }
 
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-      .nav-items {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--primary-blue);
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1.5rem 2rem;
-        align-items: center;
-      }
-      .nav-items.active {
-        display: flex;
-      }
-    }
-  </style>
+        .container {
+            max-width: 1650px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .project-header {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .project-title {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 0 var(--secondary-blue);
+        }
+
+        .project-subtitle {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            margin-bottom: 2rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .tech-badge {
+            background: var(--secondary-blue);
+            color: var(--light-gray);
+            padding: 0.5rem 0.8rem;
+            border: 1px solid var(--accent);
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .tech-badge:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 2px 2px 0 var(--dark-gray);
+        }
+
+        .tech-badge::before {
+            content: "> ";
+        }
+
+        .project-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: 2px solid var(--dark-gray);
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-family: 'Space Mono', monospace;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+            position: relative;
+            box-shadow: 4px 4px 0 var(--secondary-blue);
+        }
+
+        .btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--primary-blue);
+        }
+
+        .btn.primary {
+            background-color: var(--primary-blue);
+            color: var(--light-gray);
+        }
+
+        .btn.primary:hover {
+            background-color: var(--secondary-blue);
+        }
+
+        .pixel-divider {
+            height: 4px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--primary-blue),
+                var(--primary-blue) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            margin: 3rem 0;
+            background-size: 200% 100%;
+            animation: dash-line 3s linear forwards;
+        }
+
+        @keyframes dash-line {
+            from {
+                background-position: 100% 0;
+            }
+            to {
+                background-position: 0 0;
+            }
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .description-section h2 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            text-shadow: 1px 1px 0 var(--secondary-blue);
+        }
+
+        .description-section p {
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .features-list li {
+            padding: 0.8rem;
+            border: 2px solid var(--dark-gray);
+            margin: 0.5rem 0;
+            background-color: var(--light-gray);
+            transition: all 0.2s ease;
+            position: relative;
+            box-shadow: 2px 2px 0 var(--secondary-blue);
+        }
+
+        .features-list li:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0 var(--primary-blue);
+        }
+
+        .features-list li::before {
+            content: "> ";
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .code-snippet {
+            background-color: var(--dark-gray);
+            color: var(--light-gray);
+            padding: 1.5rem;
+            border: 2px solid var(--secondary-blue);
+            margin: 2rem 0;
+            overflow-x: auto;
+            box-shadow: 4px 4px 0 var(--secondary-blue);
+            font-family: 'Space Mono', monospace;
+        }
+
+        .code-snippet pre {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .gallery-section {
+            margin-top: 4rem;
+        }
+
+        .gallery-section h2 {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            text-shadow: 2px 2px 0 var(--secondary-blue);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .media-item {
+            background-color: var(--light-gray);
+            border: 2px solid var(--dark-gray);
+            box-shadow: 6px 6px 0 var(--secondary-blue);
+            overflow: hidden;
+            transition: all 0.2s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .media-item:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0 var(--primary-blue);
+        }
+
+        .media-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-gray);
+            font-size: 1.2rem;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .media-placeholder img {
+            width: auto;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .media-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .media-item:hover .media-placeholder::before {
+            left: 100%;
+        }
+
+        .media-content {
+            padding: 1.5rem;
+        }
+
+        .media-title {
+            font-size: 1.1rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .media-description {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .project-title {
+                font-size: 1.8rem;
+            }
+
+            .nav-items {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary-blue);
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1.5rem 2rem;
+                align-items: center;
+            }
+
+            .nav-items.active {
+                display: flex;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .social-icons {
+                display: flex;
+                justify-content: center;
+                margin-left: 0;
+                padding-top: 1rem;
+                border-top: 2px solid var(--secondary-blue);
+            }
+
+            .tech-stack {
+                gap: 0.5rem;
+            }
+
+            .project-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+
+            .back-btn {
+                left: 1rem;
+                padding: 0.8rem;
+                font-size: 1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(26, 27, 38, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            width: auto;
+            height: 75vh;
+            background: var(--light-gray);
+            border: 3px solid var(--dark-gray);
+            box-shadow: 10px 10px 0 var(--secondary-blue);
+            animation: modalSlideIn 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translate(10px, 10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translate(0, 0);
+            }
+        }
+
+        .modal-media-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark-gray);
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .modal-video {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: var(--primary-blue);
+            color: var(--light-gray);
+            border: 2px solid var(--dark-gray);
+            box-shadow: 4px 4px 0 var(--dark-gray);
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            font-family: 'Space Mono', monospace;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--dark-gray);
+            background: var(--secondary-blue);
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-blue);
+            color: var(--light-gray);
+            border: 2px solid var(--dark-gray);
+            box-shadow: 4px 4px 0 var(--dark-gray);
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: 'Space Mono', monospace;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .modal-nav:hover {
+            transform: translateY(-50%) translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--dark-gray);
+            background: var(--secondary-blue);
+        }
+
+        .modal-nav.prev {
+            left: -25px;
+        }
+
+        .modal-nav.next {
+            right: -25px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                max-width: 95%;
+                max-height: 95%;
+                height: 60vh;
+            }
+
+            .modal-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .modal-nav.prev {
+                left: -20px;
+            }
+
+            .modal-nav.next {
+                right: -20px;
+            }
+
+            .modal-close {
+                width: 35px;
+                height: 35px;
+                top: -12px;
+                right: -12px;
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="nav-container">
-    <nav>
-      <div class="logo">Ethan_Pangilinan</div>
-      <div class="nav-items">
-        <div class="nav-links">
-          <a href="index.html">About</a>
-          <a href="index.html#projects">Projects</a>
-          <a href="contact.html">Contact</a>
+    <div class="nav-container">
+        <nav>
+            <div class="logo">Ethan_Pangilinan</div>
+            <div class="nav-items">
+                <div class="nav-links">
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#projects">Projects</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/ethan-pangilinan-aaaaa6251/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/efanp14?tab=overview&from=2024-12-01&to=2024-12-31" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </div>
+
+    <button class="back-btn" onclick="window.history.back()">←</button>
+
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">Lindsay Atrium VP</h1>
+            <p class="project-subtitle">// Research Project to Port the Lindsay Atrium to the Vision Pro</p>
+            
+            <div class="tech-stack">
+                <span class="tech-badge">Apple Vision Pro</span>
+                <span class="tech-badge">Unreal Engine</span>
+                <span class="tech-badge">Blueprint</span>
+                <span class="tech-badge">Swift/C++</span>
+            </div>
+
+            <div class="project-links">
+                <a href="https://lindsayvirtualhuman.com/"  target="_blank" rel="noopener noreferrer" class="btn primary">Lindsay Virutal Human</a>
+            </div>
         </div>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/ethan-pangilinan-aaaaa6251/" target="_blank">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://github.com/efanp14" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
+
+        <div class="pixel-divider"></div>
+
+        <div class="content-grid">
+            <div class="description-section">
+                <h2>Project Overview</h2>
+                <p>The goal of the Lindsay Virtual Human project is to immerse you in the human body through a range of technologies. This project is led by Dr. Christian Jacob, and my specific task was to port the Lindsay Atrium component from Twinmotion into the Apple Vision Pro (AVP) using Unreal Engine. </p> 
+                <p> The end goal was to create an immersive spatial experience that allows users to see and learn about the beauty of the human body. Ideally, we wanted to leverage the AVP's spatial computing, high-end displays, and sensors in combination with Unreal Engine 5’s high-fidelity visuals and industry-leading features like Nanite and Lumen.</p>
+
+                <h2>Prototype Features</h2>
+                <ul class="features-list">
+                    <li>Mixed Reality: Passthrough integration</li>
+                    <li>Controls: Hand Tracking and custom Gesture Controls</li>
+                    <li>Content: Highly detailed Lindsay Virtual Human Models</li>
+                    <li>Interaction: The ability to manipulate and walk around various anatomical models running directly on an Apple Vision Pro</li>
+
+                </ul>
+            </div>
+
+            <div class="description-section">
+                <h2>Challenges</h2>
+                <p>Despite this seeming like a simple setup in the grand scheme of XR, I incorrectly assumed this project would be as straightforward as dragging some models into Unreal, enabling automatic control porting, and downloading the project onto the AVP. It was far from that. Due to the severe lack of documentation on the interaction between macOS, VisionOS, and Unreal Engine, and my lack of prior XR experience, we spent a large amount of time just diagnosing problems.</p>
+                <p>I learned the hard way that Apple is very picky about development. We encountered constant issues with the Apple Developer Team ID, provisioning, and signing errors when working with the project in Unreal. We often had to rely on trial and error, cross-referencing blog posts with our error logs just to find what worked for us.</p>
+                <p>One major hiccup was our goal to directly import the Lindsay Atrium into the AVP. After extensive debugging, we realized issues stemming from the Atrium models themselves were preventing the AVP from rendering them, so we decided to scrap that route and focus on the anatomical models. It was also difficult to implement new gesture controls from scratch, as I had no experience with XR or VR controls, and the built-in VisionOS gestures didn't automatically transfer to Unreal.</p>
+
+                <h2>Learning Outcomes</h2>
+                <p>This project was very challenging and, at times, frustrating to work on16. However, looking back, I am still glad I picked it. I was able to learn a great deal about Unreal Engine, XR, and how to get OpenXR data into the engine to interact with its elements.</p>
+                <p>I also gained a lot of practice working in Blueprint, something I originally despised, but in conjunction with another project, I now feel confident in. It got me working with the intricacies of Apple development, and working with the AVP was a treat, as I hope to see the space continue to grow despite the current slowdown in VR</p>
+            </div>
         </div>
-      </div>
-      <button class="menu-toggle">
-        <i class="fas fa-bars"></i>
-      </button>
-    </nav>
-  </div>
 
-  <div class="container">
-    <h1 class="project-title">WIP</h1>
-    <p class="project-subtitle">// Please stay tuned!</p>
+        <div class="pixel-divider"></div>
 
-    <a href="index.html#projects" class="back-btn">← Back</a>
+        <section class="gallery-section">
+            <h2>Project Gallery</h2>
+            <div class="gallery-grid">
 
-    <style>
-    .back-btn {
-        display: inline-block;
-        background: #f0f0f0;
-        text-decoration: none;
-        padding: 10px 16px;
-        border-radius: 8px;
-        font-size: 16px;
-        font-family: inherit;
-        color: black;
-    }
-    .back-btn:hover {
-        background: #e0e0e0;
-    }
-    </style>
+                <div class="media-item" onclick="openModal(0)">
+                    <div class="media-placeholder">
+                        <img src="assets\lindsay\lindsayscreenshot.png" alt="Main Menu Interface">
+                    </div>
+                    <div class="media-content">
+                        <h3 class="media-title">Prototype Demo</h3>
+                        <p class="media-description">Video walkthrough of the Atrium prototype. </p> <p> Gesture implementation is likely not optimal, but it is what I came up with in the moment due to compatibility concerns.</p>
+                    </div>
+                </div>
 
+                <div class="media-item" onclick="openModal(1)">
+                    <div class="media-placeholder">
+                        <img src="assets\lindsay\righthandbp.png" alt="Right Hand Logic">
+                    </div>
+                    <div class="media-content">
+                        <h3 class="media-title">Right Hand Gesture Control Logic</h3>
+                        <p class="media-description">Blueprint that uses OpenXR to obtain the position data of the thumb and index tip to detect a pinch if close enough. Uses this pinch-position data with wrist-rotation data to manipulate objects.</p>
+                    </div>
+                </div>
 
-  </div>
+                <div class="media-item" onclick="openModal(2)">
+                    <div class="media-placeholder">
+                        <img src="assets\lindsay\scalingbp.png" alt="Object Scaling Logic">
+                    </div>
+                    <div class="media-content">
+                        <h3 class="media-title">Object Scaling Logic</h3>
+                        <p class="media-description">Blueprint to scale objects. Uses a helper function to detect if both hands are pinching the same object. If so, it finds the distance between the pinches and scales appropriately.</p>
+                    </div>
+                </div>
 
-  
+                <div class="media-item" onclick="openModal(3)">
+                    <div class="media-placeholder">
+                        <img src="assets\lindsay\grabreleasebp.png" alt="Grab & Release  Logic">
+                    </div>
+                    <div class="media-content">
+                        <h3 class="media-title">Object Scaling Logic</h3>
+                        <p class="media-description">Blueprint to manage grabbing and releasing objects. Modified from the template VRPawn BP. Test if two hands are used, if so, enable or disable mode and collect or unreference data. If one hand is used, use template logic.</p>
+                    </div>
+                </div>
 
-  <script>
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navItems = document.querySelector(".nav-items");
+            </div>
+        </section>
 
-    menuToggle.addEventListener("click", () => {
-      navItems.classList.toggle("active");
-    });
+        <!-- Modal for enlarged media -->
+        <div id="mediaModal" class="modal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+                <button class="modal-nav prev" onclick="previousMedia()">‹</button>
+                <button class="modal-nav next" onclick="nextMedia()">›</button>
+                
+                <div class="modal-media-container" id="modalMediaContainer">
+                    <!-- Media content will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
 
-    document.addEventListener("click", (e) => {
-      if (!navItems.contains(e.target) && !menuToggle.contains(e.target)) {
-        navItems.classList.remove("active");
-      }
-    });
-  </script>
+    <script>
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navItems = document.querySelector(".nav-items");
+
+        menuToggle.addEventListener("click", () => {
+            navItems.classList.toggle("active");
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!navItems.contains(e.target) && !menuToggle.contains(e.target)) {
+                navItems.classList.remove("active");
+            }
+        });
+
+        document.querySelectorAll(".nav-links a").forEach((link) => {
+            link.addEventListener("click", () => {
+                navItems.classList.remove("active");
+            });
+        });
+
+        // Modal functionality with support for images and videos
+        const mediaData = [
+            {
+                type: "video",
+                src: "assets/lindsay/lindsaydemo.mp4",
+                alt: "Video Demo"
+            },
+            {
+                type: "image",
+                src: "assets/lindsay/righthandbp.png",
+                alt: "Right Hand Logic BP"
+            },
+
+            {
+                type: "image",
+                src: "assets/lindsay/scalingbp.png",
+                alt: "Object Scaling BP"
+            },
+
+            {
+                type: "image",
+                src: "assets/lindsay/grabreleasebp.png",
+                alt: "Grab & Release BP"
+            },
+
+        ];
+
+        let currentMediaIndex = 0;
+
+        function openModal(index) {
+            currentMediaIndex = index;
+            updateModalContent();
+            document.getElementById('mediaModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal() {
+            // Pause any videos when closing the modal
+            const video = document.querySelector('.modal-video');
+            if (video && video.tagName === 'VIDEO') {
+                video.pause();
+                video.currentTime = 0; // Reset to beginning
+            }
+            
+            document.getElementById('mediaModal').classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        function nextMedia() {
+            currentMediaIndex = (currentMediaIndex + 1) % mediaData.length;
+            updateModalContent();
+        }
+
+        function previousMedia() {
+            currentMediaIndex = (currentMediaIndex - 1 + mediaData.length) % mediaData.length;
+            updateModalContent();
+        }
+
+        function updateModalContent() {
+            const data = mediaData[currentMediaIndex];
+            const container = document.getElementById('modalMediaContainer');
+            
+            // Clear previous content
+            container.innerHTML = '';
+            
+            if (data.type === "image") {
+                const img = document.createElement('img');
+                img.src = data.src;
+                img.alt = data.alt;
+                img.className = 'modal-image';
+                container.appendChild(img);
+            } else if (data.type === "video") {
+                // For local MP4 files, use video element instead of iframe
+                const video = document.createElement('video');
+                video.src = data.src;
+                video.className = 'modal-video';
+                video.controls = true; // Add video controls
+                video.autoplay = false; // Don't autoplay
+                video.preload = 'metadata'; // Load metadata
+                
+                // Optional: Add error handling
+                video.onerror = function() {
+                    console.error('Error loading video:', data.src);
+                    container.innerHTML = '<div style="color: white; text-align: center; padding: 2rem;">Error loading video</div>';
+                };
+                
+                container.appendChild(video);
+            }
+        }
+
+        // Close modal when clicking outside content
+        document.getElementById('mediaModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+            if (e.key === 'ArrowRight') {
+                nextMedia();
+            }
+            if (e.key === 'ArrowLeft') {
+                previousMedia();
+            }
+        });
+    </script>
 </body>
 </html>
