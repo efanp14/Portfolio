@@ -369,6 +369,16 @@
             pointer-events: none;
         }
 
+        /* Overlay for interactive thumbnails (like blueprintue) */
+        .media-placeholder.interactive::after {
+            content: "⬡"; /* Hexagon or similar symbol for Blueprint */
+            position: absolute;
+            font-size: 3rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            pointer-events: none;
+        }
+
         .media-placeholder::before {
             content: '';
             position: absolute;
@@ -690,7 +700,8 @@
             </div>
 
             <div class="project-links">
-                </div>
+                <a href="https://www.youtube.com/watch?v=SlXTJ5OGK_Q"  target="_blank" rel="noopener noreferrer" class="btn primary">Game Trailer Video</a>
+            </div>
         </div>
 
         <div class="pixel-divider"></div>
@@ -730,41 +741,41 @@
 
                 <div class="media-item" onclick="openModal(0)">
                     <div class="media-placeholder video">
-                        <img src="assets\recompiled\Recomplied Trailer Thumbnail.png" alt="Gameplay Trailer">
+                        <img src="assets/recompiled/Recomplied Trailer Thumbnail.png" alt="Gameplay Demo">
                     </div>
                     <div class="media-content">
-                        <h3 class="media-title">Game Trailer</h3>
-                        <p class="media-description">Trailer I create for the game. Most of the visual assets of the game were free Fab pieces, as unfortunately I am not an artist.</p>
+                        <h3 class="media-title">Gameplay Demo</h3>
+                        <p class="media-description">Some gameplay of the game. It's nowhere near perfect, but I am proud of what we accomplished in four weeks. I think it was one of the more complete games from the course.</p>
                     </div>
                 </div>
 
                 <div class="media-item" onclick="openModal(1)">
                     <div class="media-placeholder">
-                        <img src="assets/recompiled/ai_debug.png" alt="AI Director Logic">
+                        <img src="assets/recompiled/AIDirectorState.png" alt="AI Director Logic">
                     </div>
                     <div class="media-content">
-                        <h3 class="media-title">AI Director Logic (To Be Added)</h3>
+                        <h3 class="media-title">AI Director Logic</h3>
                         <p class="media-description">Visualizing the State Tree architecture that manages game states, from combat waves to challenge modes.</p>
                     </div>
                 </div>
 
                 <div class="media-item" onclick="openModal(2)">
-                    <div class="media-placeholder">
-                        <img src="assets/recompiled/spawning_system.png" alt="Dynamic Spawning">
+                    <div class="media-placeholder interactive">
+                        <img src="assets\recompiled\rewardCalculationthumb.png" alt="Reward BP Thumbnail" onerror="this.style.display='none'; this.parentNode.style.background='#2a2f3d'; this.parentNode.innerHTML='<span style=\'color:white;\'>View Blueprint</span>'">
                     </div>
                     <div class="media-content">
-                        <h3 class="media-title">Dynamic Spawning System (To Be Added)</h3>
-                        <p class="media-description">Blueprint showing how the system traces for spawn points and categorizes them by elevation (High vs Low).</p>
+                        <h3 class="media-title">Reward Calculation BP</h3>
+                        <p class="media-description">Blueprint showing how we calculate the rewards for the player after challenges. Click to view interactive graph.</p>
                     </div>
                 </div>
 
                 <div class="media-item" onclick="openModal(3)">
                     <div class="media-placeholder">
-                        <img src="assets/recompiled/challenges_ui.png" alt="Challenge UI">
+                        <img src="assets/recompiled/SimpleDoorBP.png" alt="Simple Door BP">
                     </div>
                     <div class="media-content">
-                        <h3 class="media-title">Challenge System UI (To Be Added)</h3>
-                        <p class="media-description">The interface showing player performance metrics (Speed and Health Retained) used to calculate rewards.</p>
+                        <h3 class="media-title">Simple Door Unlock BP</h3>
+                        <p class="media-description">Non-AI aspect, when the player nears the door it prompts text. Then unlocks when the challenge is completed.</p>
                     </div>
                 </div>
 
@@ -803,28 +814,28 @@
             });
         });
 
-        // Modal functionality with support for images and YouTube
+        // Modal functionality with support for images, YouTube, and BlueprintUE
         const mediaData = [
             {
                 type: "youtube",
-                // IMPORTANT: Replace this ID with your actual YouTube Video ID (e.g. dQw4w9WgXcQ)
-                id: "SlXTJ5OGK_Q", 
+                id: "yXp3xEcHzeY", 
                 alt: "Gameplay Trailer"
             },
             {
                 type: "image",
-                src: "assets/recompiled/ai_debug.png",
-                alt: "AI Director Logic"
+                src: "assets/recompiled/AIDirectorState.png",
+                alt: "AI Director State"
+            },
+            {
+                type: "blueprintue",
+                // Uses the render URL for embedding
+                src: "https://blueprintue.com/render/br2nmrss/",
+                alt: "Reward Calculation BP"
             },
             {
                 type: "image",
-                src: "assets/recompiled/spawning_system.png",
-                alt: "Dynamic Spawning"
-            },
-            {
-                type: "image",
-                src: "assets/recompiled/challenges_ui.png",
-                alt: "Challenge UI"
+                src: "assets/recompiled/SimpleDoorBP.png",
+                alt: "Simple Door BP"
             },
         ];
 
@@ -874,10 +885,19 @@
             } else if (data.type === "youtube") {
                 // Create iframe for YouTube
                 const iframe = document.createElement('iframe');
-                // Adds autoplay and modestbranding params
                 iframe.src = `https://www.youtube.com/embed/${data.id}?autoplay=1&rel=0`;
                 iframe.className = 'modal-video';
                 iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                iframe.allowFullscreen = true;
+                container.appendChild(iframe);
+            } else if (data.type === "blueprintue") {
+                // Create iframe for BlueprintUE
+                const iframe = document.createElement('iframe');
+                iframe.src = data.src;
+                iframe.className = 'modal-video';
+                iframe.width = "100%";
+                iframe.height = "100%";
+                iframe.scrolling = "no";
                 iframe.allowFullscreen = true;
                 container.appendChild(iframe);
             }
