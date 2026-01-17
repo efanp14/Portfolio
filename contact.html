@@ -13,6 +13,11 @@
     crossorigin="anonymous"
   ></script>
   <style>
+
+    html {
+        overflow-y: scroll;
+    }   
+
     :root {
       --primary-blue: #7aa2f7;
       --secondary-blue: #2a2f3d;
@@ -35,11 +40,12 @@
     }
 
     .nav-container {
-      background: var(--primary-blue);
-      border-bottom: 3px solid var(--secondary-blue);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+        background: var(--primary-blue);
+        border-bottom: 3px solid var(--secondary-blue);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        min-height: 74px;
     }
 
     nav {
@@ -77,6 +83,7 @@
       color: var(--light-gray);
       text-decoration: none;
       text-transform: uppercase;
+      letter-spacing: -0.5px;
       font-weight: 600;
       transition: all 0.2s ease;
     }
@@ -197,29 +204,7 @@
   </style>
 </head>
 <body>
-  <div class="nav-container">
-    <nav>
-      <div class="logo">Ethan_Pangilinan</div>
-      <div class="nav-items">
-        <div class="nav-links">
-          <a href="index.html">About</a>
-          <a href="index.html#projects">Projects</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/ethan-pangilinan-aaaaa6251/" target="_blank">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://github.com/efanp14" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-      </div>
-      <button class="menu-toggle">
-        <i class="fas fa-bars"></i>
-      </button>
-    </nav>
-  </div>
+  <div class="nav-container" id="nav-placeholder"></div>
 
   <section class="contact">
     <h1>Contact Me</h1>
@@ -232,17 +217,7 @@
     </div>
   </section>
 
-  <script>
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navItems = document.querySelector(".nav-items");
-    menuToggle.addEventListener("click", () => {
-      navItems.classList.toggle("active");
-    });
-    document.addEventListener("click", (e) => {
-      if (!navItems.contains(e.target) && !menuToggle.contains(e.target)) {
-        navItems.classList.remove("active");
-      }
-    });
-  </script>
+<script src="script.js"></script>
+
 </body>
 </html>

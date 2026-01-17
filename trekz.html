@@ -13,6 +13,11 @@
       crossorigin="anonymous"
     ></script>
     <style>
+
+        html {
+            overflow-y: scroll;
+        }
+
         :root {
             --primary-blue: #7aa2f7;
             --secondary-blue: #2a2f3d;
@@ -40,7 +45,9 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            min-height: 74px;
         }
+
 
         nav {
             max-width: 1650px;
@@ -657,29 +664,8 @@
     </style>
 </head>
 <body>
-    <div class="nav-container">
-        <nav>
-            <div class="logo">Ethan_Pangilinan</div>
-            <div class="nav-items">
-                <div class="nav-links">
-                    <a href="index.html#about">About</a>
-                    <a href="index.html#projects">Projects</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/ethan-pangilinan-aaaaa6251/" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/efanp14?tab=overview&from=2024-12-01&to=2024-12-31" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-            </div>
-            <button class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </div>
+
+    <div class="nav-container" id="nav-placeholder"></div>
 
     <button class="back-btn" onclick="window.history.back()">←</button>
 
@@ -785,19 +771,8 @@
         </div>
     </div>
 
+
     <script>
-        const menuToggle = document.querySelector(".menu-toggle");
-        const navItems = document.querySelector(".nav-items");
-
-        menuToggle.addEventListener("click", () => {
-            navItems.classList.toggle("active");
-        });
-
-        document.addEventListener("click", (e) => {
-            if (!navItems.contains(e.target) && !menuToggle.contains(e.target)) {
-                navItems.classList.remove("active");
-            }
-        });
 
         document.querySelectorAll(".nav-links a").forEach((link) => {
             link.addEventListener("click", () => {
@@ -907,5 +882,8 @@
             }
         });
     </script>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
