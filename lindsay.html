@@ -14,7 +14,6 @@
     ></script>
     <style>
 
-
         html {
             overflow-y: scroll;
         }
@@ -48,7 +47,6 @@
             z-index: 1000;
             min-height: 74px;
         }
-
 
         nav {
             max-width: 1650px;
@@ -156,9 +154,42 @@
             padding: 3rem 2rem;
         }
 
+        /* --- UPDATED HEADER STYLES --- */
         .project-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
             margin-bottom: 4rem;
-            text-align: center;
+            text-align: left;
+        }
+
+        .header-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .header-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header-image img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            object-fit: cover;
+            border: 2px solid var(--dark-gray);
+            box-shadow: 10px 10px 0 var(--secondary-blue);
+            background-color: var(--secondary-blue);
+            transition: all 0.2s ease;
+        }
+
+        .header-image img:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 12px 12px 0 var(--primary-blue);
         }
 
         .project-title {
@@ -179,7 +210,7 @@
 
         .tech-stack {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start; /* Changed to left align */
             gap: 1rem;
             flex-wrap: wrap;
             margin-bottom: 2rem;
@@ -206,7 +237,7 @@
 
         .project-links {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start; /* Changed to left align */
             gap: 1rem;
             margin-bottom: 3rem;
         }
@@ -418,7 +449,22 @@
             line-height: 1.5;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 968px) {
+            /* Updated Mobile Breakpoint for Header */
+            .project-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .tech-stack, .project-links {
+                justify-content: center;
+            }
+
+            .header-image {
+                width: 100%;
+            }
+
             .container {
                 padding: 2rem 1.5rem;
             }
@@ -431,7 +477,9 @@
             .project-title {
                 font-size: 1.8rem;
             }
+        }
 
+        @media (max-width: 768px) {
             .nav-items {
                 display: none;
                 position: absolute;
@@ -460,10 +508,6 @@
                 margin-left: 0;
                 padding-top: 1rem;
                 border-top: 2px solid var(--secondary-blue);
-            }
-
-            .tech-stack {
-                gap: 0.5rem;
             }
 
             .project-links {
@@ -672,18 +716,24 @@
 
     <div class="container">
         <div class="project-header">
-            <h1 class="project-title">Lindsay Atrium VP</h1>
-            <p class="project-subtitle">// Research Project to Port the Lindsay Atrium to the Vision Pro</p>
-            
-            <div class="tech-stack">
-                <span class="tech-badge">Apple Vision Pro</span>
-                <span class="tech-badge">Unreal Engine 5.6</span>
-                <span class="tech-badge">Blueprint</span>
-                <span class="tech-badge">Swift/C++</span>
+            <div class="header-content">
+                <h1 class="project-title">Lindsay Atrium VP</h1>
+                <p class="project-subtitle">// Research Project to Port the Lindsay Atrium to the Vision Pro</p>
+                
+                <div class="tech-stack">
+                    <span class="tech-badge">Apple Vision Pro</span>
+                    <span class="tech-badge">Unreal Engine 5.6</span>
+                    <span class="tech-badge">Blueprint</span>
+                    <span class="tech-badge">Swift/C++</span>
+                </div>
+    
+                <div class="project-links">
+                    <a href="https://lindsayvirtualhuman.com/" target="_blank" rel="noopener noreferrer" class="btn primary">Lindsay Virtual Human</a>
+                </div>
             </div>
 
-            <div class="project-links">
-                <a href="https://lindsayvirtualhuman.com/"  target="_blank" rel="noopener noreferrer" class="btn primary">Lindsay Virutal Human</a>
+            <div class="header-image">
+                <img src="assets\lindsay\lindsaypresentation.jpeg" alt="Project Header Visual">
             </div>
         </div>
 
@@ -766,7 +816,6 @@
             </div>
         </section>
 
-        <!-- Modal for enlarged media -->
         <div id="mediaModal" class="modal">
             <div class="modal-content">
                 <button class="modal-close" onclick="closeModal()">&times;</button>
@@ -774,8 +823,7 @@
                 <button class="modal-nav next" onclick="nextMedia()">›</button>
                 
                 <div class="modal-media-container" id="modalMediaContainer">
-                    <!-- Media content will be inserted here -->
-                </div>
+                    </div>
             </div>
         </div>
     </div>
