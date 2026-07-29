@@ -12,651 +12,8 @@
       src="https://kit.fontawesome.com/5ce3789171.js"
       crossorigin="anonymous"
     ></script>
-    <style>
-
-      html {
-          overflow-y: scroll;
-      }
-
-      :root {
-        --primary-blue: #7aa2f7;
-        --secondary-blue: #2a2f3d;
-        --accent: #090c08;
-        --dark-gray: #1a1b26;
-        --light-gray: #f5f5f5;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Space Mono", monospace;
-      }
-
-      body {
-        line-height: 1.4;
-        color: var(--dark-gray);
-        background: var(--light-gray);
-      }
-
-      .nav-container {
-        background: var(--primary-blue);
-        border-bottom: 3px solid var(--secondary-blue);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        min-height: 74px; /* <--- ADD THIS LINE (Reserves space for the menu) */
-      }
-
-      nav {
-        max-width: 1650px;
-        margin: 0 auto;
-        padding: 1rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
-      }
-
-      .nav-items {
-        display: flex;
-        align-items: center;
-        gap: 4rem;
-      }
-
-      .nav-links {
-      display: flex;
-      gap: 2rem; /* matches Trekz spacing between About, Projects, Resume, Contact */
-      }
-
-
-      .menu-toggle {
-        display: none;
-        background: none;
-        border: none;
-        color: var(--light-gray);
-        font-size: 1.5rem;
-        cursor: pointer;
-        padding: 0.5rem;
-      }
-
-      @media (max-width: 768px) {
-        nav {
-          justify-content: space-between;
-          padding: 0.5rem 1rem;
-        }
-
-        .logo {
-          padding: 0.3rem 0.8rem;
-          font-size: 1.2rem;
-          box-shadow: 2px 2px 0 var(--dark-gray);
-        }
-
-        .menu-toggle {
-          margin-left: auto;
-        }
-
-        nav {
-          padding: 1rem;
-          gap: 1rem;
-        }
-
-        .nav-items {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          background: var(--primary-blue);
-          flex-direction: column;
-          gap: 1rem;
-          padding: 1.5rem 2rem;
-          align-items: center;
-        }
-
-        .nav-items.active {
-          display: flex;
-        }
-
-        .nav-links {
-          flex-direction: column;
-          gap: 1rem;
-        }
-
-        .menu-toggle {
-          display: block;
-          order: 2;
-        }
-
-        .social-icons {
-          display: flex;
-          justify-content: center;
-          margin-left: 0;
-          padding-top: 1rem;
-          border-top: 2px solid var(--secondary-blue);
-        }
-
-        .hero {
-          padding: 3rem 1.5rem 0;
-        }
-
-        /* Adjust Hero Content for Mobile */
-        .hero-content {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-          padding: 0rem; /* Reduced left/right padding EVEN MORE */
-          margin: 0rem -1rem;
-          width: 100%;
-          overflow-wrap: break-word;
-        }
-
-        .hero-text {
-          text-align: left;
-        }
-
-        /* Hide hero image on mobile */
-        .hero-image {
-          display: none;
-        }
-
-        .hero-image img {
-          width: 100%;
-        }
-
-        .hero h1 {
-        font-size: clamp(1.8rem, 4vw, 3rem); /* Adjusts size between 1.8rem and 3rem */
-        line-height: 1.1;
-          margin-bottom: 0.5rem;
-          word-break: break-word;
-        }
-
-        .subtitle {
-            font-size: clamp(1rem, 2vw, 1.5rem); /* Adjusts size between 1rem and 1.5rem */
-            margin-bottom: 1rem;
-          word-break: break-word;
-        }
-
-        .about-me-hero {
-          font-size: 1rem;
-          margin: 1.5rem 0;
-          padding-left: 1rem;
-          margin: 2rem 0rem; /*Reduced left/right margin even more */
-          max-width: 100%;
-          padding-left: 0rem; /*REDUCED LEFT PADDING*/
-        }
-
-        .about-me-hero p {
-          font-size: 1rem;
-          margin-bottom: 0.8rem;
-          word-break: break-word;
-        }
-
-        .pixel-divider {
-          margin: 1rem 0;
-          height: 2px;
-        }
-
-        .project-grid {
-          padding: 0 1rem;
-        }
-      }
-
-      @media (max-width: 1024px) {
-        .hero {
-          padding: 4rem 3rem 0;
-        }
-
-        .hero-content {
-          gap: 5rem;
-        }
-      }
-
-      nav {
-        max-width: 1650px;
-        margin: 0 auto;
-        padding: 1rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
-      }
-
-      .logo {
-        font-weight: 700;
-        font-size: 1.5rem;
-        color: var(--light-gray);
-        padding: 0.5rem 1rem;
-        background: var(--secondary-blue);
-        border: 2px solid var(--dark-gray);
-        box-shadow: 4px 4px 0 var(--dark-gray);
-      }
-
-      .nav-links a {
-        font-weight: 600;
-        position: relative;
-        transition: all 0.2s ease;
-      }
-
-      .nav-links a:hover {
-        transform: translateY(-2px);
-        color: var(--accent);
-      }
-
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -5px;
-        left: 0;
-        background-color: var(--dark-gray);
-        transition: width 0.3s ease;
-      }
-
-      .nav-links a:hover::after {
-        width: 100%;
-      }
-
-      .nav-links a {
-        color: var(--light-gray);
-        text-decoration: none;
-        text-transform: uppercase;
-        letter-spacing: -0.5px;
-      }
-
-      .hero {
-        padding: 5rem 10rem 0;
-        border-bottom: 0px solid var(--secondary-blue);
-      }
-
-      .hero-content {
-        max-width: 1800px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10rem;
-        align-items: left;
-      }
-
-      .hero-text {
-        position: relative;
-        z-index: 1;
-      }
-
-      .hero-image {
-        position: relative;
-        overflow: visible;
-        max-width: 400px;
-        margin-left: 10;
-      }
-
-      .hero-image img {
-        width: 200%;
-        height: auto;
-        display: block;
-        aspect-ratio: 3/4;
-        object-fit: contain;
-        transition: transform 0.3s ease;
-      }
-
-      .hero-image {
-        position: relative;
-        display: inline-block;
-      }
-
-      .hover-zone {
-        position: absolute;
-        width: 60%;
-        height: 80%;
-        left: 70%;
-        top: 1%;
-        z-index: 2;
-      }
-
-      .hero-image img {
-        pointer-events: none;
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-        color: var(--primary-blue);
-        margin-bottom: 1rem;
-        text-transform: uppercase;
-        letter-spacing: -1px;
-        line-height: 1.2;
-        text-shadow: 2px 2px 0 var(--secondary-blue);
-        opacity: 0;
-        animation: fadeInUp 1s ease forwards;
-        animation-delay: 0.3s;
-      }
-
-      .subtitle {
-        font-size: 1.1rem;
-        color: var(--dark-gray);
-        margin-bottom: 1.5rem;
-        opacity: 0;
-        animation: fadeInUp 1s ease forwards;
-        animation-delay: 0.6s;
-      }
-
-      .typewriter {
-        display: inline-block;
-        overflow: hidden;
-        border-right: 2px solid var(--primary-blue);
-        white-space: nowrap;
-        animation: typewriter 2s steps(30, end) forwards,
-          blink-caret 0.75s step-end infinite;
-      }
-
-      .jump {
-        animation: jump 0.5s ease;
-      }
-
-      .projects {
-        padding: 0rem 2rem 6rem 0;
-        background: var(--light-gray);
-      }
-
-      .projects h2 {
-        font-size: 2rem;
-        color: var(--primary-blue);
-        text-transform: uppercase;
-        letter-spacing: -1px;
-        margin-bottom: 2rem;
-        text-align: center;
-        text-shadow: 2px 2px 0 var(--secondary-blue);
-        padding-top: 2rem;
-      }
-
-      .project-grid {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-      }
-
-      .project-card {
-        background: var(--light-gray);
-        border: 2px solid var(--dark-gray);
-        box-shadow: 6px 6px 0 var(--secondary-blue);
-        padding: 1.5rem;
-        transition: all 0.2s ease;
-        position: relative;
-        text-decoration: none;
-        color: inherit;
-        display: flex;
-        gap: 1.5rem;
-        align-items: center;
-        flex-direction: row;
-        width: 100%;
-        max-width: 1200px;
-      }
-
-      .project-content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 0.8rem;
-      }
-
-      .project-card:hover {
-        transform: translate(-2px, -2px);
-        box-shadow: 8px 8px 0 var(--primary-blue);
-      }
-
-      .project-image-container {
-        width: 10%;
-        max-width: 40%;
-        flex-shrink: 0;
-        height: auto;
-        max-height: 300px;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .project-image {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        transition: transform 0.3s ease;
-      }
-
-      .project-card:hover .project-image {
-        transform: scale(1.05);
-      }
-
-      .project-card::after {
-        content: "View Project →";
-        position: absolute;
-        bottom: -20px;
-        right: 0;
-        opacity: 0;
-        transition: all 0.3s ease;
-        color: var(--primary-blue);
-        font-weight: bold;
-      }
-
-      .project-card:hover::after {
-        opacity: 1;
-        bottom: -30px;
-      }
-
-      .tech-tags span {
-        display: inline-block;
-        background: var(--secondary-blue);
-        color: var(--light-gray);
-        padding: 0.5rem 0.5rem;
-        margin: 0.5rem;
-        margin-top: auto;
-        border: 1px solid var(--accent);
-        font-size: 0.8rem;
-      }
-
-      @media (max-width: 768px) {
-        .project-card {
-          flex-direction: column;
-        }
-
-        .project-image-container {
-          width: 100%;
-          height: 250px;
-        }
-      }
-
-      @media (max-width: 768px) {
-  .projects {
-    text-align: center; /* Centers text inside the section */
-    padding: 4rem 1.5rem; /* Adjusts padding for better centering */
-  }
-
-  .project-grid {
-    display: flex; 
-    flex-direction: column;
-    align-items: center; /* Centers project cards */
-    justify-content: center;
-  }
-
-  .project-card {
-    max-width: 90%; /* Ensures the project cards don’t stretch too wide */
-    text-align: left; /* Keeps text alignment readable */
-  }
-}
-
-      .social-icons {
-        display: flex;
-        gap: 1.5rem;
-        margin-left: 2rem;
-      }
-
-      .social-icons a {
-        color: var(--light-gray);
-        font-size: 1.4rem;
-        transition: transform 0.2s ease;
-      }
-
-      .social-icons a:hover {
-        transform: translateY(-2px);
-      }
-
-      /*  Keep social icons inline with nav links on larger screens */
-      @media (min-width: 769px) {
-        .social-icons {
-          display: flex;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .social-icons {
-          display: flex; /* Ensure icons are visible */
-          justify-content: center;
-          margin-left: 0;
-          padding-top: 1rem;
-          border-top: 2px solid var(--secondary-blue);
-        }
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes typewriter {
-        from {
-          width: 0;
-        }
-        to {
-          width: 100%;
-        }
-      }
-
-      @keyframes blink-caret {
-        from,
-        to {
-          border-color: transparent;
-        }
-        50% {
-          border-color: var(--dark-gray);
-        }
-      }
-
-      @keyframes dash-line {
-        from {
-          background-position: 100% 0;
-        }
-        to {
-          background-position: 0 0;
-        }
-      }
-
-      @keyframes jump {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-      }
-
-      .about-me-hero strong {
-        transition: all 0.3s ease;
-        display: inline-block;
-        cursor: pointer;
-      }
-
-      .about-me-hero strong:hover {
-        color: var(--primary-blue);
-        transform: translateY(-2px);
-      }
-
-      .pixel-divider {
-        height: 4px;
-        background: repeating-linear-gradient(
-          90deg,
-          var(--primary-blue),
-          var(--primary-blue) 10px,
-          transparent 10px,
-          transparent 20px
-        );
-        margin: 2rem 0;
-        animation: dash-line 2s linear forwards;
-        background-size: 200% 100%;
-      }
-
-      @media (max-width: 768px) {
-        .hero-content {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-          text-align: left;
-          padding: 0;
-          margin: 0 -1rem;
-        }
-
-        @media (max-width: 768px) {
-        .hero {
-            padding: 5rem 1.4rem 0;
-        }
-        }
-
-
-        .hero-image {
-          margin: 0 auto;
-          max-width: 300px;
-        }
-
-        .about-me-hero {
-          border-left-width: 2px;
-          font-size: 1.1rem;
-          line-height: 1.6;
-          color: var(--secondary-blue);
-          border-left: 0px solid var(--primary-blue);
-          margin-left: 0.5rem;
-          margin: 1.5rem 0;
-          padding-left: 1rem;
-          padding-right: 1rem;
-        }
-
-        .about-me-hero p {
-          margin-bottom: 1rem;
-        }
-
-        .pixel-divider {
-          background-size: auto 100%;
-          animation: none;
-          margin: 1.5rem 0;
-        }
-        /* HIDE IMAGE ON MOBILE */
-        #carousel-image {
-          display: none;
-        }
-        /*Responsive font sizing*/
-        .hero h1 {
-          font-size: 7vw; /*Responsive heading*/
-        }
-
-        .subtitle {
-          font-size: 4vw; /*Responsive subtitle*/
-        }
-
-        .about-me-hero {
-          font-size: 4vw; /*Responsive about me*/
-          margin-left: 1vw; /*Added left margim*/
-        }
-
-        .about-me-hero p {
-          font-size: 4vw; /*responsive para*/
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/home.css" />
   </head>
   <body>
     <div class="nav-container" id="nav-placeholder"></div>
@@ -665,8 +22,7 @@
       <div class="hero-content">
         <div class="hero-text">
           <h1>
-            Ethan Pangilinan<br /><span class="typewriter">Computer Science
-              Student</span>
+            Ethan Pangilinan<br /><span class="typewriter">Masters Student</span>
           </h1>
           <p class="subtitle">// Attending the University of Calgary</p>
 
@@ -674,7 +30,7 @@
 
           <div class="about-me-hero">
             <p>
-              Currently a fourth-year Computer Science student at the <strong> University
+              Currently a Computer Science Masters student at the <strong> University
               of Calgary</strong> passionate about all things tech. <br />
             </p>
 
@@ -706,8 +62,9 @@
               <strong>Java</strong>, <strong>Python</strong>, <strong>C</strong>,
               <strong>C#</strong>, <strong>C++</strong>, <strong>Swift</strong> and
               <strong>Blueprint</strong>, always looking to expand my technical
-              knowledge. Throughout my Computer Science degree, I’ve maintained
-              a strong academic record, earning a place on the <strong>Faculty of Science Dean's List</strong> every year.
+              knowledge. Throughout my undergraduate degree I maintained a
+              strong academic record, earning a place on the <strong>Faculty of Science Dean's List</strong> every year
+              and graduating <strong>with distinction</strong>.
             </p>
 
             <br />
@@ -724,10 +81,9 @@
         <div class="hero-image">
           <div class="hover-zone"></div>
           <img
-            src="assets\homepage\photogallery\FrontFacingNCBB.png"
+            src="assets/homepage/photogallery/FrontFacingNCBB.png"
             alt="Profile Picture"
             id="carousel-image"
-            class=""
           />
         </div>
       </div>
@@ -735,201 +91,71 @@
 
     <section id="projects" class="projects">
       <h2>Projects</h2>
-      <div class="project-grid">
-        <a href="trekz.html" class="project-card scroll-reveal">
-          <div class="project-image-container">
-            <img
-              src="assets/homepage/projecticons/trekzlogo.png"
-              alt="Trekz Logo"
-              class="project-image"
-            />
-          </div>
-          <div class="project-content">
-            <h3>Trekz</h3>
-            <p>
-              // A hackathon like project, built in 6 hours.
-              Prototype with dummy data for a travel sharing/planning site.
-              The project was a part of an Generative AI class.
-            </p>
-            <div class="tech-tags">
-              <span>> Replit</span>
-              <span>> ChatGPT</span>
-              <span>> TypeScript</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="lindsay.html" class="project-card scroll-reveal">
-          <div class="project-image-container">
-            <img
-              src="assets/homepage/projecticons/lindsay.png"
-              alt="lindsay atrium"
-              class="project-image"
-            />
-          </div>
-          <div class="project-content">
-            <h3>Lindsay Atrium in Vision Pro</h3>
-            <p>
-              // Working to bring the Lindsay Virutal Human Atrium to life in the Apple Vision Pro.
-            </p>
-            <div class="tech-tags">
-              <span>> Apple Vision Pro</span>
-              <span>> Unreal Engine 5</span>
-              <span>> Swift & C++ & Blueprint</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="recompiled.html" class="project-card scroll-reveal">
-          <div class="project-image-container">
-            <img
-              src="assets\homepage\projecticons\recompiled.png"
-              alt="recompiled"
-              class="project-image"
-            />
-          </div>
-          <div class="project-content">
-            <h3>Recompiled</h3>
-            <p>
-              // Game Dev Project 
-            </p>
-            <div class="tech-tags">
-              <span>> Unreal Engine 5</span>
-              <span>> Blueprint</span>
-              <span>> C++</span>
-            </div>
-          </div>
-        </a>
-
-                <a href="mee.html" class="project-card scroll-reveal">
-          <div class="project-image-container">
-            <img
-              src="assets/homepage/projecticons/mee.png"
-              alt="Mee"
-              class="project-image"
-            />
-          </div>
-          <div class="project-content">
-            <h3>WIP: Mee</h3>
-            <p>
-              // Mee is a calm digital utility designed to help you log, reflect on, and understand your own life and interests. It's a private-first space to capture your experiences across music, movies, books, and daily activities. As you connect with close friends, it organically becomes a social space for sharing your true identity, not performing for likes.
-            </p>
-            <div class="tech-tags">
-              <span>> Flutter</span>
-              <span>> Dart</span>
-              <span>> Go</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="website.html" class="project-card scroll-reveal">
-          <div class="project-image-container">
-            <img
-              src="assets\homepage\projecticons\pfp.jpg"
-              alt="website"
-              class="project-image"
-            />
-          </div>
-          <div class="project-content">
-            <h3>WIP: This Website</h3>
-            <p>
-              // Personal Portfolio and Project.
-            </p>
-            <div class="tech-tags">
-              <span>> HTMl</span>
-              <span>> CSS</span>
-              <span>> JavaScript</span>
-            </div>
-          </div>
-        </a>
-
-      </div>
+      <!-- Cards are generated from the `projects` array below by js/home.js -->
+      <div class="project-grid"></div>
     </section>
 
+    <!-- ======================================================================
+         PAGE CONTENT
+         Add a project: append an entry here and create its page (copy
+         partials/project-template.html). Order here is the order on screen.
+         ====================================================================== -->
     <script>
-
-      const hoverZone = document.querySelector(".hover-zone");
-
-      hoverZone.addEventListener("mouseenter", () => {
-        if (delayActive) return;
-
-        carouselImage.classList.add("jump");
-
-        const handleAnimationEnd = () => {
-          carouselImage.classList.remove("jump");
-        };
-
-        carouselImage.addEventListener("animationend", handleAnimationEnd, {
-          once: true,
-        });
-
-        setTimeout(() => {
-          updateImage();
-        }, 300);
-
-        delayActive = true;
-        setTimeout(() => {
-          delayActive = false;
-        }, 1000);
-      });
-    </script>
-
-    <script src="script.js"></script>
-
-    <script>
-      const scrollReveal = document.querySelectorAll(".scroll-reveal");
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("active");
-            }
-          });
+      const projects = [
+        {
+          href: "trekz.html",
+          title: "Trekz",
+          image: "assets/homepage/projecticons/trekzlogo.png",
+          imageAlt: "Trekz Logo",
+          blurb:
+            "A hackathon like project, built in 6 hours. Prototype with dummy data for a travel sharing/planning site. The project was a part of an Generative AI class.",
+          tags: ["Replit", "ChatGPT", "TypeScript"]
         },
-        { threshold: 0.1 }
-      );
-      scrollReveal.forEach((element) => observer.observe(element));
-
-      const images = ["assets/homepage/photogallery/FrontFacingNCBB.png", "assets/homepage/photogallery/GreenNCBB.png", "assets/homepage/photogallery/PhoneNCBB.png"];
-      const carouselImage = document.getElementById("carousel-image");
-      let currentIndex = 0;
-      let delayActive = false;
-
-      function updateImage() {
-        currentIndex = (currentIndex + 1) % images.length;
-        carouselImage.src = images[currentIndex];
-      }
-
-      function generateTerrain() {
-        const terrain = document.querySelector(".terrain");
-        for (let i = 0; i < 100; i++) {
-          const segment = document.createElement("div");
-          segment.style.height = `${Math.random() * 50}px`;
-          terrain.appendChild(segment);
+        {
+          href: "lindsay.html",
+          title: "Lindsay Atrium in Vision Pro",
+          image: "assets/homepage/projecticons/lindsay.png",
+          imageAlt: "lindsay atrium",
+          blurb:
+            "Working to bring the Lindsay Virutal Human Atrium to life in the Apple Vision Pro.",
+          tags: ["Apple Vision Pro", "Unreal Engine 5", "Swift & C++ & Blueprint"]
+        },
+        {
+          href: "recompiled.html",
+          title: "Recompiled",
+          image: "assets/homepage/projecticons/recompiled.png",
+          imageAlt: "recompiled",
+          blurb: "Game Dev Project",
+          tags: ["Unreal Engine 5", "Blueprint", "C++"]
+        },
+        {
+          href: "mee.html",
+          title: "WIP: Mee",
+          image: "assets/homepage/projecticons/mee.png",
+          imageAlt: "Mee",
+          blurb:
+            "Mee is a calm digital utility designed to help you log, reflect on, and understand your own life and interests. It's a private-first space to capture your experiences across music, movies, books, and daily activities. As you connect with close friends, it organically becomes a social space for sharing your true identity, not performing for likes.",
+          tags: ["Flutter", "Dart", "Go"]
+        },
+        {
+          href: "website.html",
+          title: "WIP: This Website",
+          image: "assets/homepage/projecticons/pfp.jpg",
+          imageAlt: "website",
+          blurb: "Personal Portfolio and Project.",
+          tags: ["HTMl", "CSS", "JavaScript"]
         }
-      }
+      ];
 
-      carouselImage.addEventListener("mouseenter", () => {
-        if (delayActive) return;
-
-        carouselImage.classList.add("jump");
-
-        const handleAnimationEnd = () => {
-          carouselImage.classList.remove("jump");
-          carouselImage.removeEventListener("animationend", handleAnimationEnd);
-        };
-
-        carouselImage.addEventListener("animationend", handleAnimationEnd);
-
-        setTimeout(() => {
-          updateImage();
-        }, 300);
-
-        delayActive = true;
-        setTimeout(() => {
-          delayActive = false;
-        }, 1000);
-      });
+      // Hero portrait rotates through these on hover.
+      const heroImages = [
+        "assets/homepage/photogallery/FrontFacingNCBB.png",
+        "assets/homepage/photogallery/GreenNCBB.png",
+        "assets/homepage/photogallery/PhoneNCBB.png"
+      ];
     </script>
+
+    <script src="js/nav.js"></script>
+    <script src="js/home.js"></script>
   </body>
 </html>

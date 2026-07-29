@@ -12,196 +12,8 @@
     src="https://kit.fontawesome.com/5ce3789171.js"
     crossorigin="anonymous"
   ></script>
-  <style>
-
-    html {
-        overflow-y: scroll;
-    }   
-
-    :root {
-      --primary-blue: #7aa2f7;
-      --secondary-blue: #2a2f3d;
-      --accent: #090c08;
-      --dark-gray: #1a1b26;
-      --light-gray: #f5f5f5;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Space Mono", monospace;
-    }
-
-    body {
-      line-height: 1.4;
-      color: var(--dark-gray);
-      background: var(--light-gray);
-    }
-
-    .nav-container {
-        background: var(--primary-blue);
-        border-bottom: 3px solid var(--secondary-blue);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        min-height: 74px;
-    }
-
-    nav {
-      max-width: 1650px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-    }
-
-    .logo {
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: var(--light-gray);
-      padding: 0.5rem 1rem;
-      background: var(--secondary-blue);
-      border: 2px solid var(--dark-gray);
-      box-shadow: 4px 4px 0 var(--dark-gray);
-    }
-
-    .nav-items {
-      display: flex;
-      align-items: center;
-      gap: 4rem;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-links a {
-      color: var(--light-gray);
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: -0.5px;
-      font-weight: 600;
-      transition: all 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      transform: translateY(-2px);
-      color: var(--accent);
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 1.5rem;
-      margin-left: 2rem;
-    }
-
-    .social-icons a {
-      color: var(--light-gray);
-      font-size: 1.4rem;
-      transition: transform 0.2s ease;
-    }
-
-    .social-icons a:hover {
-      transform: translateY(-2px);
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--light-gray);
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0.5rem;
-    }
-
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-      .nav-items {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--primary-blue);
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1.5rem 2rem;
-        align-items: center;
-      }
-      .nav-items.active {
-        display: flex;
-      }
-    }
-
-    /* Contact Section */
-    .contact {
-      max-width: 900px;
-      margin: 5rem auto;
-      padding: 2rem;
-      background: var(--light-gray);
-      border: 2px solid var(--dark-gray);
-      box-shadow: 6px 6px 0 var(--secondary-blue);
-      text-align: center;
-    }
-
-    .contact h1 {
-      font-size: 2.5rem;
-      color: var(--primary-blue);
-      text-transform: uppercase;
-      letter-spacing: -1px;
-      text-shadow: 2px 2px 0 var(--secondary-blue);
-      margin-bottom: 1rem;
-    }
-
-    .pixel-divider {
-      height: 4px;
-      background: repeating-linear-gradient(
-        90deg,
-        var(--primary-blue),
-        var(--primary-blue) 10px,
-        transparent 10px,
-        transparent 20px
-      );
-      margin: 2rem 0;
-    }
-
-    .contact p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .contact-links a {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--secondary-blue);
-      color: var(--light-gray);
-      padding: 0.8rem 1.2rem;
-      border: 2px solid var(--dark-gray);
-      box-shadow: 4px 4px 0 var(--dark-gray);
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .contact-links a:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 6px 6px 0 var(--primary-blue);
-    }
-  </style>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/contact.css" />
 </head>
 <body>
   <div class="nav-container" id="nav-placeholder"></div>
@@ -212,12 +24,12 @@
     <p>// Feel free to reach out through any of the platforms below</p>
     <div class="contact-links">
       <a href="mailto:ethanpangilinan14@gmail.com"><i class="fas fa-envelope"></i>Email</a>
-      <a href="https://www.linkedin.com/in/ethan-pangilinan-aaaaa6251/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
-      <a></i>EthanNP14@gmail.com or EthanPangilinan@UCalgary.ca</a>
+      <a href="https://www.linkedin.com/in/ethan-pangilinan-aaaaa6251/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i>LinkedIn</a>
+      <a>EthanNP14@gmail.com or EthanPangilinan@UCalgary.ca</a>
     </div>
   </section>
 
-<script src="script.js"></script>
+  <script src="js/nav.js"></script>
 
 </body>
 </html>

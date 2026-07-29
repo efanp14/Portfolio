@@ -6,191 +6,8 @@
     <title>Beyond - Ethan Pangilinan</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/5ce3789171.js" crossorigin="anonymous"></script>
-    <style>
-
-        html {
-            overflow-y: scroll;
-        }       
-
-        :root {
-            --primary-blue: #7aa2f7;
-            --secondary-blue: #2a2f3d;
-            --accent: #090c08;
-            --dark-gray: #1a1b26;
-            --light-gray: #f5f5f5;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Space Mono", monospace; }
-        body { line-height: 1.4; color: var(--dark-gray); background: var(--light-gray); overflow-x: hidden; }
-
-        /* NAV BAR SYNC FROM PORTFOLIO INDEX */
-        .nav-container {
-            background: var(--primary-blue);
-            border-bottom: 3px solid var(--secondary-blue);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            min-height: 74px;
-        }
-
-        nav {
-            max-width: 1650px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
-
-        .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--light-gray);
-            padding: 0.5rem 1rem;
-            background: var(--secondary-blue);
-            border: 2px solid var(--dark-gray);
-            box-shadow: 4px 4px 0 var(--dark-gray);
-        }
-
-        .nav-items { display: flex; align-items: center; gap: 4rem; }
-        .nav-links { display: flex; gap: 2rem; }
-        .nav-links a {
-            color: var(--light-gray);
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: -0.5px;
-            font-weight: 600;
-            position: relative;
-            transition: all 0.2s ease;
-        }
-        .nav-links a:hover { transform: translateY(-2px); color: var(--accent); }
-        .nav-links a::after {
-            content: "";
-            position: absolute;
-            width: 0; height: 2px;
-            bottom: -5px; left: 0;
-            background-color: var(--dark-gray);
-            transition: width 0.3s ease;
-        }
-        .nav-links a:hover::after { width: 100%; }
-
-        .social-icons { display: flex; gap: 1.5rem; margin-left: 2rem; }
-        .social-icons a { color: var(--light-gray); font-size: 1.4rem; transition: transform 0.2s ease; }
-        .social-icons a:hover { transform: translateY(-2px); }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--light-gray);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        /* EXPLORER LAYOUT */
-        .container {
-            max-width: 1800px;
-            margin: 2rem auto;
-            padding: 0; /* CHANGED FROM 0 2rem TO 0 TO FIX SIDEBAR GAP */
-            display: flex;
-            min-height: 80vh;
-            border: 3px solid var(--dark-gray);
-            box-shadow: 10px 10px 0 var(--secondary-blue);
-            background: #fff;
-        }
-
-        .sidebar {
-            width: 350px;
-            border-right: 3px solid var(--dark-gray);
-            background: #e1e4e8;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .sidebar-header {
-            padding: 1.2rem;
-            background: var(--secondary-blue);
-            color: var(--light-gray);
-            font-weight: 700;
-            font-size: 0.85rem;
-            border-bottom: 2px solid var(--dark-gray);
-        }
-
-        .file-item {
-            padding: 1.2rem;
-            border-bottom: 1px solid #c0c4cc;
-            cursor: pointer;
-            transition: 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--dark-gray);
-            font-weight: 600;
-        }
-
-        .file-item:hover { background: var(--primary-blue); color: #fff; }
-        .file-item.active { background: var(--primary-blue); color: white; border-right: 5px solid var(--secondary-blue); }
-
-        .viewer {
-            flex: 1;
-            padding: 3rem;
-            background: white;
-            overflow-y: auto;
-        }
-
-        .content-section { display: none; animation: terminalFade 0.4s ease-out; }
-        .content-section.active { display: block; }
-
-        @keyframes terminalFade {
-            from { opacity: 0; transform: translateX(10px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        .viewer h2 {
-            font-size: 2rem;
-            color: var(--primary-blue);
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            text-shadow: 1px 1px 0 var(--secondary-blue);
-        }
-
-        .viewer p { margin-bottom: 2rem; line-height: 1.6; max-width: 800px; }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .gallery-card {
-            border: 2px solid var(--dark-gray);
-            background: var(--light-gray);
-            box-shadow: 4px 4px 0 var(--secondary-blue);
-            transition: 0.2s;
-        }
-        .gallery-card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--primary-blue); }
-
-        .gallery-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-bottom: 2px solid var(--dark-gray); }
-        .card-info { padding: 1rem; }
-        .card-info strong { display: block; margin-bottom: 5px; color: var(--secondary-blue); }
-        .card-info span { font-size: 0.8rem; }
-
-        @media (max-width: 1024px) {
-            .container { flex-direction: column; }
-            .sidebar { width: 100%; border-right: none; border-bottom: 3px solid var(--dark-gray); }
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle { display: block; }
-            .nav-items {
-                display: none; position: absolute; top: 100%; left: 0; right: 0;
-                background: var(--primary-blue); flex-direction: column; padding: 2rem;
-            }
-            .nav-items.active { display: flex; }
-        }
-    </style>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/beyond.css" />
 </head>
 <body>
     <div class="nav-container" id="nav-placeholder"></div>
@@ -198,97 +15,80 @@
     <div class="container">
         <div class="sidebar">
             <div class="sidebar-header">USER_ETHAN // ROOT_DIRECTORY</div>
-            <div class="file-item active" onclick="showFile('3d')"><i class="fas fa-cube"></i> 3D_PRINTING.log</div>
-            <div class="file-item" onclick="showFile('esports')"><i class="fas fa-gamepad"></i> ESPORTS.exe</div>
-            <div class="file-item" onclick="showFile('hiking')"><i class="fas fa-mountain"></i> ROCKY_MTN_LOGS.txt</div>
+            <!-- File entries are generated from `beyondSections` below -->
         </div>
 
         <div class="viewer">
-            <section id="3d" class="content-section active">
-                <h2>// 3D Printing & CAD Design</h2>
-                <p>Applying an engineering mindset to physical prototyping. I design simple functional parts for my day to day life, focusing on precise tolerances and iterative improvements.</p>
-                <div class="gallery-grid">
-                    <div class="gallery-card">
-                        <img src="assets/beyond/3d_print_1.jpg" onerror="this.src='https://placehold.co/600x400/2a2f3d/white?text=3D+Model+Preview'">
-                        <div class="card-info">
-                            <strong>WIP</strong>
-                            <span>WIP</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="esports" class="content-section">
-                <h2>// Club & Competitive Esports</h2>
-                <p>I contribute and have competed to the University of Calgary Valorant scene, and broader Valorant scene. Focus on team synchronization, high-stakes communication, and technical optimization.</p>
-                <div class="gallery-grid">
-                    <div class="gallery-card">
-                        <div style="background:var(--secondary-blue); height: 250px; display:flex; align-items:center; justify-content:center; color:white;">
-                            <i class="fas fa-users-cog fa-4x"></i>
-                        </div>
-                        <div class="card-info">
-                            <strong>Calgary Esports United: Club executive</strong>
-                            <span>Organize and engage the community with all things Valorant.</span>
-                        </div>
-                    </div>
-                    <div class="gallery-card">
-                        <div style="background:var(--secondary-blue); height: 250px; display:flex; align-items:center; justify-content:center; color:white;">
-                            <i class="fas fa-users-cog fa-4x"></i>
-                        </div>
-                        <div class="card-info">
-                            <strong>CESU Competitive Valorant Team</strong>
-                            <span>WIP</span>
-                        </div>
-                    </div>
-                    <div class="gallery-card">
-                        <div style="background:var(--secondary-blue); height: 250px; display:flex; align-items:center; justify-content:center; color:white;">
-                            <i class="fas fa-users-cog fa-4x"></i>
-                        </div>
-                        <div class="card-info">
-                            <strong>Glacial: Personal Team</strong>
-                            <span>WIP</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="hiking" class="content-section">
-                <h2>// Mountain Exploration: WIP</h2>
-                <p>Documenting travels and photography in the Alberta Rockies. An interest in capturing unique perspectives through composition and lighting.</p>
-                <div class="gallery-grid">
-                    <div class="gallery-card">
-                        <img src="assets/beyond/hiking_1.jpg" onerror="this.src='https://placehold.co/600x400/7aa2f7/white?text=Mountain+Photography'">
-                        <div class="card-info">
-                            <strong>Summit Perspectives</strong>
-                            <span>Photography focused on the scale and texture of the Rocky Mountains.</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <!-- Panels are generated from `beyondSections` below -->
         </div>
     </div>
 
-<script src="script.js"></script>
+    <!-- ====================================================================
+         PAGE CONTENT
+         Add an interest by adding a section; add a photo by adding a card.
+         Field reference is documented at the top of js/beyond.js.
+         ==================================================================== -->
+    <script>
+        const beyondSections = [
+            {
+                id: "3d",
+                label: "3D_PRINTING.log",
+                icon: "fas fa-cube",
+                title: "// 3D Printing & CAD Design",
+                intro: "Applying an engineering mindset to physical prototyping. I design simple functional parts for my day to day life, focusing on precise tolerances and iterative improvements.",
+                cards: [
+                    {
+                        image: "assets/beyond/3d_print_1.jpg",
+                        fallback: "https://placehold.co/600x400/2a2f3d/white?text=3D+Model+Preview",
+                        title: "WIP",
+                        caption: "WIP"
+                    }
+                ]
+            },
+            {
+                id: "esports",
+                label: "ESPORTS.exe",
+                icon: "fas fa-gamepad",
+                title: "// Club & Competitive Esports",
+                intro: "I contribute and have competed to the University of Calgary Valorant scene, and broader Valorant scene. Focus on team synchronization, high-stakes communication, and technical optimization.",
+                cards: [
+                    {
+                        icon: "fas fa-users-cog fa-4x",
+                        title: "Calgary Esports United: Club executive",
+                        caption: "Organize and engage the community with all things Valorant."
+                    },
+                    {
+                        icon: "fas fa-users-cog fa-4x",
+                        title: "CESU Competitive Valorant Team",
+                        caption: "WIP"
+                    },
+                    {
+                        icon: "fas fa-users-cog fa-4x",
+                        title: "Glacial: Personal Team",
+                        caption: "WIP"
+                    }
+                ]
+            },
+            {
+                id: "hiking",
+                label: "ROCKY_MTN_LOGS.txt",
+                icon: "fas fa-mountain",
+                title: "// Mountain Exploration: WIP",
+                intro: "Documenting travels and photography in the Alberta Rockies. An interest in capturing unique perspectives through composition and lighting.",
+                cards: [
+                    {
+                        image: "assets/beyond/hiking_1.jpg",
+                        fallback: "https://placehold.co/600x400/7aa2f7/white?text=Mountain+Photography",
+                        title: "Summit Perspectives",
+                        caption: "Photography focused on the scale and texture of the Rocky Mountains."
+                    }
+                ]
+            }
+        ];
+    </script>
 
-<script>
-    function showFile(id) {
-        // 1. Hide all content sections
-        document.querySelectorAll('.content-section').forEach(section => {
-            section.classList.remove('active');
-        });
-
-        // 2. Deactivate all sidebar items
-        document.querySelectorAll('.file-item').forEach(item => {
-            item.classList.remove('active');
-        });
-
-        // 3. Show selected section and highlight sidebar item
-        document.getElementById(id).classList.add('active');
-        
-        // This 'event' refers to the click event passed from the HTML onclick
-        event.currentTarget.classList.add('active');
-    }
-</script>
+    <script src="js/nav.js"></script>
+    <script src="js/beyond.js"></script>
 
 </body>
 </html>

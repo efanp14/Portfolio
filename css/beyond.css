@@ -1,0 +1,171 @@
+/* ==========================================================================
+   beyond.css — styles unique to beyond.html (the file-explorer page).
+   Loaded after base.css.
+   ========================================================================== */
+
+body {
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Explorer shell: sidebar of "files" on the left, viewer on the right
+   -------------------------------------------------------------------------- */
+.container {
+  max-width: 1800px;
+  margin: 2rem auto;
+  padding: 0;
+  display: flex;
+  min-height: 80vh;
+  border: 3px solid var(--dark-gray);
+  box-shadow: 10px 10px 0 var(--secondary-blue);
+  background: #fff;
+}
+
+.sidebar {
+  width: 350px;
+  border-right: 3px solid var(--dark-gray);
+  background: #e1e4e8;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  padding: 1.2rem;
+  background: var(--secondary-blue);
+  color: var(--light-gray);
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-bottom: 2px solid var(--dark-gray);
+}
+
+.file-item {
+  padding: 1.2rem;
+  border-bottom: 1px solid #c0c4cc;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--dark-gray);
+  font-weight: 600;
+}
+
+.file-item:hover {
+  background: var(--primary-blue);
+  color: #fff;
+}
+
+.file-item.active {
+  background: var(--primary-blue);
+  color: white;
+  border-right: 5px solid var(--secondary-blue);
+}
+
+.viewer {
+  flex: 1;
+  padding: 3rem;
+  background: white;
+  overflow-y: auto;
+}
+
+.viewer h2 {
+  font-size: 2rem;
+  color: var(--primary-blue);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 0 var(--secondary-blue);
+}
+
+.viewer p {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* Only the selected "file" is shown. */
+.content-section {
+  display: none;
+  animation: terminalFade 0.4s ease-out;
+}
+
+.content-section.active {
+  display: block;
+}
+
+@keyframes terminalFade {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Cards inside a section
+   -------------------------------------------------------------------------- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.gallery-card {
+  border: 2px solid var(--dark-gray);
+  background: var(--light-gray);
+  box-shadow: 4px 4px 0 var(--secondary-blue);
+  transition: 0.2s;
+}
+
+.gallery-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--primary-blue);
+}
+
+.gallery-card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-bottom: 2px solid var(--dark-gray);
+}
+
+/* Stand-in used when a card has an icon instead of a photo. */
+.card-icon {
+  background: var(--secondary-blue);
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.card-info {
+  padding: 1rem;
+}
+
+.card-info strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--secondary-blue);
+}
+
+.card-info span {
+  font-size: 0.8rem;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive — the sidebar becomes a header strip
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 3px solid var(--dark-gray);
+  }
+}

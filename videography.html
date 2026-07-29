@@ -6,85 +6,8 @@
     <title>Videography - Ethan Pangilinan</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/5ce3789171.js" crossorigin="anonymous"></script>
-    <style>
-
-        html {
-            overflow-y: scroll;
-        }        
-
-        :root {
-            --primary-blue: #7aa2f7;
-            --secondary-blue: #2a2f3d;
-            --accent: #090c08;
-            --dark-gray: #1a1b26;
-            --light-gray: #f5f5f5;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Space Mono", monospace; }
-        body { line-height: 1.4; color: var(--dark-gray); background: var(--light-gray); }
-
-        /* NAV BAR SYNC FROM PORTFOLIO INDEX */
-        .nav-container {
-        background: var(--primary-blue);
-        border-bottom: 3px solid var(--secondary-blue);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        min-height: 74px;
-        }
-
-        nav { max-width: 1650px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: relative; }
-        .logo { font-weight: 700; font-size: 1.5rem; color: var(--light-gray); padding: 0.5rem 1rem; background: var(--secondary-blue); border: 2px solid var(--dark-gray); box-shadow: 4px 4px 0 var(--dark-gray); }
-        .nav-items { display: flex; align-items: center; gap: 4rem; }
-        .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { 
-            color: var(--light-gray); 
-            text-decoration: none; 
-            text-transform: uppercase; 
-            letter-spacing: -0.5px; /* <--- ADD THIS LINE */
-            font-weight: 600; 
-            position: relative; 
-            transition: all 0.2s ease;
-        }
-        .nav-links a:hover { transform: translateY(-2px); color: var(--accent); }
-        .social-icons { display: flex; gap: 1.5rem; margin-left: 2rem; }
-        .social-icons a { color: var(--light-gray); font-size: 1.4rem; transition: transform 0.2s ease; }
-        .menu-toggle { display: none; background: none; border: none; color: var(--light-gray); font-size: 1.5rem; cursor: pointer; padding: 0.5rem; }
-
-        /* LAYOUT */
-        .container { max-width: 1800px; margin: 0 auto; padding: 3rem 2rem; }
-        .page-header { text-align: center; margin-bottom: 4rem; }
-        .page-title { font-size: 2.5rem; color: var(--primary-blue); text-transform: uppercase; text-shadow: 2px 2px 0 var(--secondary-blue); margin-bottom: 1.5rem; }
-        .yt-btn { display: inline-flex; align-items: center; gap: 12px; padding: 0.8rem 2rem; border: 2px solid var(--dark-gray); background: var(--light-gray); text-decoration: none; font-weight: 600; text-transform: uppercase; box-shadow: 4px 4px 0 var(--secondary-blue); transition: 0.2s; color: var(--dark-gray); }
-        .yt-btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--primary-blue); }
-
-        .row-section { margin-bottom: 5rem; }
-        .row-title { font-size: 1.6rem; color: var(--primary-blue); margin-bottom: 1.5rem; text-transform: uppercase; border-bottom: 2px solid var(--secondary-blue); display: inline-block; padding-bottom: 5px; }
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 2rem; }
-        
-        .video-card { background: var(--light-gray); border: 2px solid var(--dark-gray); box-shadow: 6px 6px 0 var(--secondary-blue); transition: 0.2s; cursor: pointer; overflow: hidden; }
-        .video-card:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--primary-blue); }
-
-        .thumbnail { position: relative; aspect-ratio: 16/9; background: #000; overflow: hidden; }
-        .thumbnail img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: 0.3s; }
-        .video-card:hover .thumbnail img { opacity: 1; transform: scale(1.03); }
-        .play-hint { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2.5rem; color: white; opacity: 0.7; pointer-events: none; }
-
-        /* MINIMIZED TEXT AREA */
-        .video-details { padding: 0.75rem 1rem; border-top: 2px solid var(--dark-gray); background: #fff; }
-        .video-details h3 { font-size: 0.85rem; margin-bottom: 6px; color: var(--secondary-blue); text-transform: uppercase; }
-        .tag-container { display: flex; gap: 6px; flex-wrap: wrap; }
-        .tag { background: var(--secondary-blue); color: var(--light-gray); padding: 2px 8px; font-size: 0.65rem; border: 1px solid var(--accent); }
-        .tag.raw { background: var(--primary-blue); color: var(--dark-gray); font-weight: 700; }
-
-        /* MODAL */
-        .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(26, 27, 38, 0.95); align-items: center; justify-content: center; }
-        .modal.active { display: flex; }
-        .modal-content { width: 90%; max-width: 1100px; aspect-ratio: 16/9; background: #000; border: 3px solid var(--dark-gray); box-shadow: 10px 10px 0 var(--primary-blue); position: relative; }
-        .close-btn { position: absolute; top: -45px; right: -5px; color: white; font-size: 2.5rem; cursor: pointer; }
-
-        @media (max-width: 768px) { .video-grid { grid-template-columns: 1fr; } .nav-items { display: none; } .menu-toggle { display: block; } }
-    </style>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/videography.css" />
 </head>
 <body>
 
@@ -97,149 +20,86 @@
                 <i class="fab fa-youtube"></i> EthanPangilinan Channel
             </a>
         </header>
-
-        <section class="row-section">
-            <h2 class="row-title">// Standard Drone & Hobby</h2>
-            <div class="video-grid">
-                <div class="video-card" onclick="openModal('Z8UGumlCguc')">
-                    <div class="thumbnail">
-                        <img src="https://img.youtube.com/vi/Z8UGumlCguc/maxresdefault.jpg">
-                        <i class="fas fa-play play-hint"></i>
-                    </div>
-                    <div class="video-details">
-                        <h3>Lake Side Carnival</h3>
-                        <div class="tag-container"><span class="tag">Standard Drone</span><span class="tag">Hobby</span></div>
-                    </div>
-                </div>
-                <div class="video-card" onclick="openModal('d-sie87f9ZU')">
-                    <div class="thumbnail">
-                        <img src="https://img.youtube.com/vi/d-sie87f9ZU/maxresdefault.jpg">
-                        <i class="fas fa-play play-hint"></i>
-                    </div>
-                    <div class="video-details">
-                        <h3>Small City Sprout</h3>
-                        <div class="tag-container"><span class="tag">Standard Drone</span><span class="tag">Hobby</span></div>
-                    </div>
-                </div>
-                <div class="video-card" onclick="openModal('LEIFUtGaAkU')">
-                    <div class="thumbnail">
-                        <img src="assets/videography/Wedding Videography.png" alt="Wedding Videography Client Showcase">
-                        <i class="fas fa-play play-hint"></i>
-                    </div>
-                    <div class="video-details">
-                        <h3>Wedding Videography // Carmela and Pascal.</h3>
-                        <div class="tag-container">
-                            <span class="tag">Standard Drone</span>
-                            <span class="tag">Client</span>
-                            <span class="tag raw">Raw Footage</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="video-card" onclick="openModal('vNdtEnVy-4U')">
-                    <div class="thumbnail">
-                        <img src="https://img.youtube.com/vi/vNdtEnVy-4U/maxresdefault.jpg">
-                        <i class="fas fa-play play-hint"></i>
-                    </div>
-                    <div class="video-details">
-                        <h3>Wesea Metal Industries | Showcase</h3>
-                        <div class="tag-container"><span class="tag">Standard Drone</span><span class="tag">Commercial</span></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="row-section">
-            <h2 class="row-title">// Real Estate & Commercial</h2>
-            <div class="video-grid">
-                <div class="video-card" onclick="openModal('QZDJGg7_Zj4')">
-                    <div class="thumbnail">
-                        <img src="https://img.youtube.com/vi/QZDJGg7_Zj4/maxresdefault.jpg">
-                        <i class="fas fa-play play-hint"></i>
-                    </div>
-                    <div class="video-details">
-                        <h3>Aerial Real Estate Showcase</h3>
-                        <div class="tag-container"><span class="tag">Real Estate</span><span class="tag">Client</span></div>
-                    </div>
-                </div>
-                <div class="video-card" onclick="openModal('1gbOfdNmJtE')">
-                    <div class="thumbnail">
-                        <img src="https://img.youtube.com/vi/1gbOfdNmJtE/maxresdefault.jpg">
-                        <i class="fas fa-play play-hint"></i>
-                    </div>
-                    <div class="video-details">
-                        <h3>Property Showcase (BermanMedia.ca)</h3>
-                        <div class="tag-container">
-                            <span class="tag">Shorts</span>
-                            <span class="tag">Real Estate</span>
-                            <span class="tag raw">Raw Footage</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="video-card" onclick="openModal('x9xbs49vB0Q')">
-                    <div class="thumbnail">
-                        <img src="https://img.youtube.com/vi/x9xbs49vB0Q/maxresdefault.jpg">
-                        <i class="fas fa-play play-hint"></i>
-                    </div>
-                    <div class="video-details">
-                        <h3>Calgary Varsity Estates Showcase (BermanMedia.ca)</h3>
-                        <div class="tag-container">
-                            <span class="tag">Shorts</span>
-                            <span class="tag">Real Estate</span>
-                            <span class="tag raw">Raw Footage</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="row-section">
-            <h2 class="row-title">// FPV Cinematography</h2>
-            <div class="video-grid">
-                <div class="video-card" onclick="openModal('cI7H_ggdovc')">
-                    <div class="thumbnail">
-                        <img src="https://img.youtube.com/vi/cI7H_ggdovc/maxresdefault.jpg">
-                        <i class="fas fa-play play-hint"></i>
-                    </div>
-                    <div class="video-details">
-                        <h3>Sunset Soarin'</h3>
-                        <div class="tag-container"><span class="tag">FPV</span><span class="tag">Hobby</span><span class="tag">Action</span></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Rows are generated from `videoSections` below by js/videography.js -->
     </div>
 
-    <div id="videoModal" class="modal" onclick="closeModal()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
             <iframe id="modalPlayer" width="100%" height="100%" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     </div>
 
+    <!-- ====================================================================
+         PAGE CONTENT
+         Add a video by adding one entry to the right section. The thumbnail
+         defaults to the YouTube still; set `thumb` to override it.
+         Field reference is documented at the top of js/videography.js.
+         ==================================================================== -->
     <script>
-        // MOBILE MENU LOGIC
-        const menuToggle = document.querySelector(".menu-toggle");
-        const navItems = document.querySelector(".nav-items");
-        menuToggle.addEventListener("click", () => { navItems.classList.toggle("active"); });
-
-        // MODAL LOGIC
-        function openModal(id) {
-            const modal = document.getElementById('videoModal');
-            const iframe = document.getElementById('modalPlayer');
-            iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeModal() {
-            const modal = document.getElementById('videoModal');
-            const iframe = document.getElementById('modalPlayer');
-            iframe.src = '';
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
+        const videoSections = [
+            {
+                title: "// Standard Drone & Hobby",
+                videos: [
+                    {
+                        id: "Z8UGumlCguc",
+                        title: "Lake Side Carnival",
+                        tags: ["Standard Drone", "Hobby"]
+                    },
+                    {
+                        id: "d-sie87f9ZU",
+                        title: "Small City Sprout",
+                        tags: ["Standard Drone", "Hobby"]
+                    },
+                    {
+                        id: "LEIFUtGaAkU",
+                        title: "Wedding Videography // Carmela and Pascal.",
+                        thumb: "assets/videography/Wedding Videography.png",
+                        thumbAlt: "Wedding Videography Client Showcase",
+                        tags: ["Standard Drone", "Client", { label: "Raw Footage", raw: true }]
+                    },
+                    {
+                        id: "vNdtEnVy-4U",
+                        title: "Wesea Metal Industries | Showcase",
+                        tags: ["Standard Drone", "Commercial"]
+                    }
+                ]
+            },
+            {
+                title: "// Real Estate & Commercial",
+                videos: [
+                    {
+                        id: "QZDJGg7_Zj4",
+                        title: "Aerial Real Estate Showcase",
+                        tags: ["Real Estate", "Client"]
+                    },
+                    {
+                        id: "1gbOfdNmJtE",
+                        title: "Property Showcase (BermanMedia.ca)",
+                        tags: ["Shorts", "Real Estate", { label: "Raw Footage", raw: true }]
+                    },
+                    {
+                        id: "x9xbs49vB0Q",
+                        title: "Calgary Varsity Estates Showcase (BermanMedia.ca)",
+                        tags: ["Shorts", "Real Estate", { label: "Raw Footage", raw: true }]
+                    }
+                ]
+            },
+            {
+                title: "// FPV Cinematography",
+                videos: [
+                    {
+                        id: "cI7H_ggdovc",
+                        title: "Sunset Soarin'",
+                        tags: ["FPV", "Hobby", "Action"]
+                    }
+                ]
+            }
+        ];
     </script>
 
-    <script src="script.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/videography.js"></script>
 
 </body>
 </html>

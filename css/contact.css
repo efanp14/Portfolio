@@ -1,0 +1,53 @@
+/* ==========================================================================
+   contact.css — styles unique to contact.html.
+   Loaded after base.css.
+   ========================================================================== */
+
+.contact {
+  max-width: 900px;
+  margin: 5rem auto;
+  padding: 2rem;
+  background: var(--light-gray);
+  border: 2px solid var(--dark-gray);
+  box-shadow: 6px 6px 0 var(--secondary-blue);
+  text-align: center;
+}
+
+.contact h1 {
+  font-size: 2.5rem;
+  color: var(--primary-blue);
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  text-shadow: 2px 2px 0 var(--secondary-blue);
+  margin-bottom: 1rem;
+}
+
+.contact p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.contact-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--secondary-blue);
+  color: var(--light-gray);
+  padding: 0.8rem 1.2rem;
+  border: 2px solid var(--dark-gray);
+  box-shadow: 4px 4px 0 var(--dark-gray);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.contact-links a:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--primary-blue);
+}

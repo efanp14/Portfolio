@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- ===========================================================================
+     STARTER FOR A NEW PROJECT PAGE
+
+     1. Copy this file to the site root as <project>.html
+     2. Fill in the title, header, write-up and galleryItems below
+     3. Add a matching entry to the `projects` array in index.html
+
+     Optional switches:
+       <body class="split-header">   header text beside a hero image
+                                     (add the .header-* markup, see lindsay.html)
+       galleryOptions.wideModal      wider/shorter lightbox, better for embeds
+                                     (see recompiled.html)
+     =========================================================================== -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT NAME - Ethan Pangilinan</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/5ce3789171.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/project.css" />
+</head>
+<body>
+
+    <div class="nav-container" id="nav-placeholder"></div>
+
+    <button class="back-btn" onclick="window.history.back()">&larr;</button>
+
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">PROJECT NAME</h1>
+            <p class="project-subtitle">// One line about the project</p>
+
+            <div class="tech-stack">
+                <span class="tech-badge">Tech One</span>
+                <span class="tech-badge">Tech Two</span>
+            </div>
+
+            <div class="project-links">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="btn primary">Primary Link</a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="btn">GitHub Repo</a>
+            </div>
+        </div>
+
+        <div class="pixel-divider"></div>
+
+        <div class="content-grid">
+            <div class="description-section">
+                <h2>Project Overview</h2>
+                <p>What it is and why you built it.</p>
+
+                <h2>Features</h2>
+                <ul class="features-list">
+                    <li>Feature one</li>
+                    <li>Feature two</li>
+                </ul>
+            </div>
+
+            <div class="description-section">
+                <h2>Challenges</h2>
+                <p>What was hard.</p>
+
+                <h2>Learning Outcomes</h2>
+                <p>What you took away from it.</p>
+            </div>
+        </div>
+
+        <div class="pixel-divider"></div>
+
+        <section class="gallery-section">
+            <h2>Project Gallery</h2>
+            <!-- Tiles are generated from `galleryItems` below by js/gallery.js -->
+            <div class="gallery-grid"></div>
+        </section>
+    </div>
+
+    <!-- ====================================================================
+         Gallery content. Add a screenshot or clip by adding one entry here.
+         Field reference is documented at the top of js/gallery.js.
+         ==================================================================== -->
+    <script>
+        const galleryItems = [
+            {
+                title: "Screenshot Title",
+                description: "What the reader is looking at.",
+                thumb: "assets/PROJECT/screenshot.png",
+                media: {
+                    type: "image",
+                    src: "assets/PROJECT/screenshot.png",
+                    alt: "Screenshot"
+                }
+            }
+            // { ..., media: { type: "video",   src: "assets/PROJECT/demo.mp4" } }
+            // { ..., media: { type: "youtube", id: "VIDEO_ID" }, badge: "video" }
+            // { ..., media: { type: "embed",   src: "https://blueprintue.com/render/xxxx/" } }
+        ];
+    </script>
+
+    <script src="js/nav.js"></script>
+    <script src="js/gallery.js"></script>
+
+</body>
+</html>

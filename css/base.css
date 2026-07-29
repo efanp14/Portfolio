@@ -1,0 +1,207 @@
+/* ==========================================================================
+   base.css — the shared shell for every page on the site.
+
+   Contains: design tokens, the global reset, the navigation bar and the
+   pixel divider. Every page loads this file FIRST, then its own page sheet,
+   so page sheets can freely override anything here.
+
+   Change a colour here and it changes everywhere.
+   ========================================================================== */
+
+/* Reserve the scrollbar gutter so short pages don't shift horizontally. */
+html {
+  overflow-y: scroll;
+}
+
+/* --------------------------------------------------------------------------
+   Design tokens
+   -------------------------------------------------------------------------- */
+:root {
+  --primary-blue: #7aa2f7;
+  --secondary-blue: #2a2f3d;
+  --accent: #090c08;
+  --dark-gray: #1a1b26;
+  --light-gray: #f5f5f5;
+
+  /* Shared layout width used by the nav and the project pages. */
+  --content-width: 1650px;
+}
+
+/* --------------------------------------------------------------------------
+   Reset
+   -------------------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Space Mono", monospace;
+}
+
+body {
+  line-height: 1.4;
+  color: var(--dark-gray);
+  background: var(--light-gray);
+}
+
+/* --------------------------------------------------------------------------
+   Navigation bar
+   Markup lives in partials/nav.html and is injected by js/nav.js.
+   -------------------------------------------------------------------------- */
+.nav-container {
+  background: var(--primary-blue);
+  border-bottom: 3px solid var(--secondary-blue);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  min-height: 74px; /* reserves space so the page doesn't jump while nav loads */
+}
+
+nav {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--light-gray);
+  padding: 0.5rem 1rem;
+  background: var(--secondary-blue);
+  border: 2px solid var(--dark-gray);
+  box-shadow: 4px 4px 0 var(--dark-gray);
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--light-gray);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.nav-links a:hover {
+  transform: translateY(-2px);
+  color: var(--accent);
+}
+
+/* Underline that wipes in on hover. */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--dark-gray);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+  margin-left: 2rem;
+}
+
+.social-icons a {
+  color: var(--light-gray);
+  font-size: 1.4rem;
+  transition: transform 0.2s ease;
+}
+
+.social-icons a:hover {
+  transform: translateY(-2px);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--light-gray);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+/* Mobile nav: collapse the links into a dropdown behind the hamburger. */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-items {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--primary-blue);
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    align-items: center;
+  }
+
+  .nav-items.active {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .social-icons {
+    justify-content: center;
+    margin-left: 0;
+    padding-top: 1rem;
+    border-top: 2px solid var(--secondary-blue);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Pixel divider
+   Pages override `margin` / `animation` as needed.
+   -------------------------------------------------------------------------- */
+.pixel-divider {
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--primary-blue),
+    var(--primary-blue) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  background-size: 200% 100%;
+  margin: 2rem 0;
+}
+
+@keyframes dash-line {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}

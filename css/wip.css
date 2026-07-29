@@ -1,0 +1,43 @@
+/* ==========================================================================
+   wip.css — placeholder page for projects that don't have a write-up yet
+   (mee.html, website.html). Loaded after base.css.
+
+   When a project is ready, replace its page with a copy of
+   partials/project-template.html instead of editing this file.
+   ========================================================================== */
+
+.container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.project-title {
+  font-size: 3rem;
+  color: var(--primary-blue);
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  text-shadow: 2px 2px 0 var(--secondary-blue);
+}
+
+.project-subtitle {
+  font-size: 1.3rem;
+  color: var(--dark-gray);
+  margin-top: 1rem;
+}
+
+.back-btn {
+  display: inline-block;
+  background: #f0f0f0;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: inherit;
+  color: black;
+}
+
+.back-btn:hover {
+  background: #e0e0e0;
+}
